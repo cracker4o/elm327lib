@@ -9,11 +9,25 @@ Parity: None
 Line End Mode: CR | CRLF
 
 //COMMANDS
-//Spaces are optional
-//Commands starting with AT are only internal for the ELM327 device
-//OBD commands can contain only digits from 0-9 and letters from A-F (HEX NUMBERS)
-//All commands are terminated with CR (0x0D)
-//Incomplete messages which are not understood by the ELM327 (syntax errors) will return '?' after 20 seconds
 
-AT Z - Reset ELM
+Spaces are optional
+Commands starting with AT are only internal for the ELM327 device
+OBD commands can contain only digits from 0-9 and letters from A-F (HEX NUMBERS)
+All commands are terminated with CR (0x0D)
+Incomplete messages which are not understood by the ELM327 (syntax errors) will return '?' after 20 seconds
+ELM327 is not case sensitive
+
+//*** ELM327 commands ***
+
+Please refer to the AT commands described in the ELM327Datasheet document.
+
+//Workflow
+
+1. Send an 'AT SP' command to set the preferred protocol
+2. Send and OBD2 command
+3. Wait for the response
+4. Parse the response
+5. Analyze the response data and divide it by the necessary fraction for the command or process it with the command result function.
+
+
 
