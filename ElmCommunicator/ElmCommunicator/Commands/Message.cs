@@ -5,7 +5,9 @@ using System.Globalization;
 
 namespace ElmCommunicator.Commands
 {
-    
+    /// <summary>
+    /// A base message class for communication with the ELM327 device
+    /// </summary>
     public class Message : ICommunicationMessage
     {
         public Message()

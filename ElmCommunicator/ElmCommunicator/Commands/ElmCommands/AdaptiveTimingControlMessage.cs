@@ -12,7 +12,7 @@ namespace ElmCommunicator.Commands.ElmCommands
     {
         public AdaptiveTimingControlMessage(string id)
         {
-            this.Command = "RT AT";
+            this.Command = "AT AT";
 
             if (string.IsNullOrEmpty(id))
             {
