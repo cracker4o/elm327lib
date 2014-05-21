@@ -40,14 +40,16 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Commands\ElmCommands\ActivityMonitorCountMessage.cs" />
-    <Compile Include="Commands\ElmCommands\ActivityMonitorTimeoutMessage.cs" />
-    <Compile Include="Commands\ElmCommands\AdaptiveTimingControlMessage.cs" />
-    <Compile Include="Commands\ElmCommands\AllowLongMessages.cs" />
-    <Compile Include="Commands\ElmCommands\AutoReceiveMessage.cs" />
-    <Compile Include="Commands\ElmCommands\BaudRateDivisorMessage.cs" />
+    <Compile Include="Commands\ElmCommands\ActivityMonitorCountSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\ActivityMonitorTimeoutSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\AdaptiveTimingControlSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\AllowLongSendMessages.cs" />
+    <Compile Include="Commands\ElmCommands\AutoReceiveSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\BaudRateDivisorSendMessage.cs" />
     <Compile Include="Commands\ICommunicationMessage.cs" />
-    <Compile Include="Commands\Message.cs" />
+    <Compile Include="Commands\IReceiveMessage.cs" />
+    <Compile Include="Commands\ISendMessage.cs" />
+    <Compile Include="Commands\SendMessage.cs" />
     <Compile Include="Configurations\SerialConfig.cs" />
     <Compile Include="Configurations\ICommunicationConfig.cs" />
     <Compile Include="IReceiver.cs" />
@@ -59,7 +61,8 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\ObdIICommands\" />
-    <Folder Include="Responses\" />
+    <Folder Include="Responses\ElmResponses\" />
+    <Folder Include="Responses\ObdIIResponses\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

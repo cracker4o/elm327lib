@@ -11,8 +11,21 @@ namespace ElmCommunicator
 {
     public class SerialCommunicator
     {
-        private SerialPort _port;
+        private readonly SerialPort _port;
         private readonly SerialConfig _config;
+        private ISender _sender;
+
+        private void PortDataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            var port = (SerialPort)sender;
+            var receiver = new Receiver();
+            var message = receiver.Parse(port.ReadExisting());
+
+            if (message != null)
+            {
+                receiver.Process(message);
+            }
+        }
 
         public SerialCommunicator()
         {
@@ -34,15 +47,20 @@ namespace ElmCommunicator
             this._port.DataReceived += PortDataReceived;
         }
 
-        void PortDataReceived(object sender, SerialDataReceivedEventArgs e)
+        public ISender Sender 
         {
-            var port = (SerialPort)sender;
-            var receiver = new Receiver();
-            var message = receiver.Parse(port.ReadExisting());
-            
-            if (message != null)
+            get 
             {
-                receiver.Process(message);
+                if (this._sender == null)
+                {
+                    return new Sender(this._port);
+                }
+
+                return this._sender;
+            }
+            set
+            {
+                this._sender = value;
             }
         }
     }

@@ -21,7 +21,7 @@ namespace ElmCommunicator
             this._serialPort = serialPort;
         }
 
-        public void Send(ICommunicationMessage message)
+        public void Send(ISendMessage message)
         {
             if (this._serialPort.IsOpen)
             {

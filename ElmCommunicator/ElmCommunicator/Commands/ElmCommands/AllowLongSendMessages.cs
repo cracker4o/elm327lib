@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
-    public class AutoReceiveMessage : Message
+    public class AllowLongSendMessages : SendMessage
     {
-        public AutoReceiveMessage()
+        public AllowLongSendMessages()
         {
-            this.Command = "AT AR";
+            this.Command = "AT AL";
         }
     }
 }

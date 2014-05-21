@@ -1,21 +1,19 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
-    public class BaudRateDivisorMessage : Message
+    public class ActivityMonitorTimeoutSendMessage : SendMessage
     {
-        public BaudRateDivisorMessage()
+        public ActivityMonitorTimeoutSendMessage()
         {
-            this.Command = "AT BRD";
+            this.Command = "AT AMT";
         }
 
-        public BaudRateDivisorMessage(string data)
-            : this()
+        public ActivityMonitorTimeoutSendMessage(string data)
         {
             if (string.IsNullOrEmpty(data))
             {

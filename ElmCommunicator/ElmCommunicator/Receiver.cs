@@ -9,14 +9,25 @@ namespace ElmCommunicator
 {
     public class Receiver : IReceiver
     {
+        public delegate void ProcessMessage(ICommunicationMessage message);
+
+        public ProcessMessage OnProcessMessage { get; set; }
+
         public ICommunicationMessage Parse(string received)
         {
-            throw new NotImplementedException();
+            ICommunicationMessage message  = null;
+
+            
+
+            return message;
         }
 
         public void Process(ICommunicationMessage message)
         {
-            throw new NotImplementedException();
+            if (this.OnProcessMessage != null)
+            {
+                this.OnProcessMessage(message);
+            }
         }
     }
 }

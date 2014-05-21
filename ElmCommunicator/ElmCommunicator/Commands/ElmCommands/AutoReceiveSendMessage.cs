@@ -6,11 +6,11 @@ using System.Threading.Tasks;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
-    public class ActivityMonitorCountMessage : Message
+    public class AutoReceiveSendMessage : SendMessage
     {
-        public ActivityMonitorCountMessage()
+        public AutoReceiveSendMessage()
         {
-            this.Command = "AT AMC";
+            this.Command = "AT AR";
         }
     }
 }

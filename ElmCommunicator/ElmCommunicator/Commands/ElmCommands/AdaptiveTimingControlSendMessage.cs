@@ -8,9 +8,9 @@ using System.Threading.Tasks;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
-    public class AdaptiveTimingControlMessage : Message
+    public class AdaptiveTimingControlSendMessage : SendMessage
     {
-        public AdaptiveTimingControlMessage(string id)
+        public AdaptiveTimingControlSendMessage(string id)
         {
             this.Command = "AT AT";
 

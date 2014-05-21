@@ -11,6 +11,6 @@ namespace ElmCommunicator
 {
     public interface ISender
     {
-        void Send(ICommunicationMessage message);
+        void Send(ISendMessage message);
     }
 }

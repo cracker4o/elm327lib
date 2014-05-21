@@ -8,9 +8,9 @@ namespace ElmCommunicator.Commands
     /// <summary>
     /// A base message class for communication with the ELM327 device
     /// </summary>
-    public class Message : ICommunicationMessage
+    public class SendMessage : ISendMessage
     {
-        public Message()
+        public SendMessage()
         {
             this.EndTermination = "\r\n"; //<CR><LF>
         }
@@ -32,5 +32,7 @@ namespace ElmCommunicator.Commands
             byte validData;
             return byte.TryParse(data, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out validData);
         }
+
+        public ICommunicationMessage ResponseMessage { get; set; }
     }
 }
