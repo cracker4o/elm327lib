@@ -18,6 +18,11 @@ namespace ElmCommunicator
                 throw new ArgumentNullException("serialPort");
             }
 
+            if (!serialPort.IsOpen)
+            {
+                this._serialPort.Open();
+            }
+
             this._serialPort = serialPort;
         }
 
