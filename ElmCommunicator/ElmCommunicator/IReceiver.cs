@@ -11,8 +11,8 @@ namespace ElmCommunicator
 {
     public interface IReceiver
     {
-        ICommunicationMessage Parse(string received);
+        IReceiveMessage Parse(string received, IReceiveMessage msgTemplate);
 
-        void Process(ICommunicationMessage message);
+        void Process(IReceiveMessage message);
     }
 }

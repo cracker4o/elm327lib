@@ -28,10 +28,18 @@ namespace ElmCommunicator
 
         public void Send(ISendMessage message)
         {
+            if (message == null)
+            {
+                throw new ArgumentNullException("message");
+            }
+
             if (this._serialPort.IsOpen)
             {
+                this.LastMessage = message.ResponseMessage;
                 this._serialPort.Write(message.ToString());
             }
         }
+
+        public IReceiveMessage LastMessage { get; set; }
     }
 }

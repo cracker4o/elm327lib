@@ -19,7 +19,7 @@ namespace ElmCommunicator
         {
             var port = (SerialPort)sender;
             var receiver = new Receiver();
-            var message = receiver.Parse(port.ReadExisting());
+            var message = receiver.Parse(port.ReadExisting(), this._sender.LastMessage);
 
             if (message != null)
             {

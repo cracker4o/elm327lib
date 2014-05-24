@@ -12,5 +12,7 @@ namespace ElmCommunicator
     public interface ISender
     {
         void Send(ISendMessage message);
+
+        IReceiveMessage LastMessage { get; set; }
     }
 }

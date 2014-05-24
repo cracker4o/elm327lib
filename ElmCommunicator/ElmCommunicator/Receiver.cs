@@ -13,16 +13,12 @@ namespace ElmCommunicator
 
         public ProcessMessage OnProcessMessage { get; set; }
 
-        public ICommunicationMessage Parse(string received)
+        public IReceiveMessage Parse(string received, IReceiveMessage msgTemplate)
         {
-            ICommunicationMessage message  = null;
-
-            
-
-            return message;
+            return msgTemplate.Parse(received);
         }
 
-        public void Process(ICommunicationMessage message)
+        public void Process(IReceiveMessage message)
         {
             if (this.OnProcessMessage != null)
             {

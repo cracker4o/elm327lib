@@ -56,12 +56,18 @@
     <Compile Include="ISender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Receiver.cs" />
+    <Compile Include="Responses\ElmResponses\ActivityMonitorCountResponseMessage.cs" />
+    <Compile Include="Responses\ElmResponses\ActivityMonitorTimeoutResponseMessage.cs" />
+    <Compile Include="Responses\ElmResponses\AdaptiveTimingControlResponseMessage.cs" />
+    <Compile Include="Responses\ElmResponses\AllowLongResponseMessages.cs" />
+    <Compile Include="Responses\ElmResponses\AutoReceiveResponseMessage.cs" />
+    <Compile Include="Responses\ElmResponses\BaudRateDivisorResponseMessage.cs" />
+    <Compile Include="Responses\ResponseMessage.cs" />
     <Compile Include="Sender.cs" />
     <Compile Include="SerialCommunicator.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Commands\ObdIICommands\" />
-    <Folder Include="Responses\ElmResponses\" />
     <Folder Include="Responses\ObdIIResponses\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

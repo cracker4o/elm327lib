@@ -9,6 +9,9 @@ namespace ElmCommunicator.Responses.ElmResponses
 {
     public class ActivityMonitorCountResponseMessage : ResponseMessage
     {
-
+        public override IReceiveMessage Parse(string message)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

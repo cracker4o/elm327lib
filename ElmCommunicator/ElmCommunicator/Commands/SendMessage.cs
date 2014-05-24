@@ -33,6 +33,6 @@ namespace ElmCommunicator.Commands
             return byte.TryParse(data, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out validData);
         }
 
-        public ICommunicationMessage ResponseMessage { get; set; }
+        public IReceiveMessage ResponseMessage { get; set; }
     }
 }
