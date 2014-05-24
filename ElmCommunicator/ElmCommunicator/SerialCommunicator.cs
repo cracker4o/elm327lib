@@ -9,7 +9,7 @@ using ElmCommunicator.Configurations;
 
 namespace ElmCommunicator
 {
-    public class SerialCommunicator
+    public class SerialCommunicator : IDisposable
     {
         private readonly SerialPort _port;
         private readonly SerialConfig _config;
@@ -29,12 +29,13 @@ namespace ElmCommunicator
 
         public SerialCommunicator()
         {
+            this._config = SerialConfig.Default;
+
             StopBits stopBits;
             Enum.TryParse(this._config.StopBits, out stopBits);
             Parity parity;
             Enum.TryParse(this._config.Parity, out parity);
 
-            this._config = (SerialConfig)SettingsBase.Synchronized(new SerialConfig());
             this._port = new SerialPort
             {
                 BaudRate = this._config.BaudRate,
@@ -62,6 +63,11 @@ namespace ElmCommunicator
             {
                 this._sender = value;
             }
+        }
+
+        public void Dispose()
+        {
+            this._port.Dispose();
         }
     }
 }
