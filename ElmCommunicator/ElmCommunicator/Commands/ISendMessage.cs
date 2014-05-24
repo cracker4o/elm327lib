@@ -9,6 +9,6 @@ namespace ElmCommunicator.Commands
 {
     public interface ISendMessage : ICommunicationMessage
     {
-        ICommunicationMessage ResponseMessage { get; set; }
+        IReceiveMessage ResponseMessage { get; set; }
     }
 }
