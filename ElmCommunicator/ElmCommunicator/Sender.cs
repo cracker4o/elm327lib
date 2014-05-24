@@ -26,7 +26,7 @@ namespace ElmCommunicator
             }
         }
 
-        public void Send(ISendMessage message)
+        public virtual void Send(ISendMessage message)
         {
             if (message == null)
             {

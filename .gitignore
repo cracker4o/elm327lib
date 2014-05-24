@@ -159,3 +159,6 @@ $RECYCLE.BIN/
 /ElmCommunicator/ElmCommunicator/bin
 /ElmCommunicator/ElmCommunicator/obj
 /ElmCommunicator/TestElmCommunicator
+/ElmCommunicator/ElmCommunicatorTests/bin
+/ElmCommunicator/ElmCommunicatorTests/obj
+/ElmCommunicator/packages/
