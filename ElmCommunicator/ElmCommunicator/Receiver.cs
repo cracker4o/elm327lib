@@ -9,8 +9,6 @@ namespace ElmCommunicator
 {
     public class Receiver : IReceiver
     {
-        public delegate void ProcessMessage(ICommunicationMessage message);
-
         public ProcessMessage OnProcessMessage { get; set; }
 
         public IReceiveMessage Parse(string received, IReceiveMessage msgTemplate)

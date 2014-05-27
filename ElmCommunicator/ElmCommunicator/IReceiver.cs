@@ -9,10 +9,18 @@ using ElmCommunicator.Commands;
 
 namespace ElmCommunicator
 {
+    /// <summary>
+    /// A delegate for message processing.
+    /// </summary>
+    /// <param name="message"></param>
+    public delegate void ProcessMessage(ICommunicationMessage message);
+
     public interface IReceiver
     {
         IReceiveMessage Parse(string received, IReceiveMessage msgTemplate);
 
         void Process(IReceiveMessage message);
+
+        ProcessMessage OnProcessMessage { get; set; }
     }
 }

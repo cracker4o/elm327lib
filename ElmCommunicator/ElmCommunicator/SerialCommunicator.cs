@@ -11,26 +11,42 @@ namespace ElmCommunicator
 {
     public class SerialCommunicator : IDisposable
     {
-        private readonly SerialPort _port;
+        private SerialPort _port;
         private readonly SerialConfig _config;
         private ISender _sender;
+        private readonly IReceiver _receiver;
 
-        private void PortDataReceived(object sender, SerialDataReceivedEventArgs e)
+        internal void PortDataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             var port = (SerialPort)sender;
-            var receiver = new Receiver();
-            var message = receiver.Parse(port.ReadExisting(), this._sender.LastMessage);
+            var message = this._receiver.Parse(port.ReadExisting(), this._sender.LastMessage);
 
             if (message != null)
             {
-                receiver.Process(message);
+                this._receiver.Process(message);
             }
         }
 
-        public SerialCommunicator()
+        public SerialCommunicator(SerialPort port = null)
         {
             this._config = SerialConfig.Default;
 
+            if (port == null)
+            {
+                InitSerialPort();
+            }
+            else
+            {
+                this._port = port;
+            }
+
+            this._port.DataReceived += PortDataReceived;
+            this._receiver = new Receiver();
+            this._sender = new Sender(this._port);
+        }
+
+        private void InitSerialPort()
+        {
             StopBits stopBits;
             Enum.TryParse(this._config.StopBits, out stopBits);
             Parity parity;
@@ -44,19 +60,12 @@ namespace ElmCommunicator
                 StopBits = stopBits,
                 Parity = parity
             };
-
-            this._port.DataReceived += PortDataReceived;
         }
 
         public ISender Sender 
         {
-            get 
+            get
             {
-                if (this._sender == null)
-                {
-                    return new Sender(this._port);
-                }
-
                 return this._sender;
             }
             set
@@ -65,8 +74,16 @@ namespace ElmCommunicator
             }
         }
 
+        public IReceiver Receiver
+        {
+            get { return this._receiver; }
+        }
+
         public void Dispose()
         {
+            if(this._port.IsOpen)
+                this._port.Close();
+
             this._port.Dispose();
         }
     }
