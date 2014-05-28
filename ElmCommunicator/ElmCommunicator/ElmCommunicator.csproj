@@ -45,7 +45,10 @@
     <Compile Include="Commands\ElmCommands\AdaptiveTimingControlSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\AllowLongSendMessages.cs" />
     <Compile Include="Commands\ElmCommands\AutoReceiveSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\BaudRateDivisor.cs" />
     <Compile Include="Commands\ElmCommands\BaudRateDivisorSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\BaudRateTimeout.cs" />
+    <Compile Include="Commands\ElmCommands\BypassInitializationSendMessage.cs" />
     <Compile Include="Commands\ICommunicationMessage.cs" />
     <Compile Include="Commands\IReceiveMessage.cs" />
     <Compile Include="Commands\ISendMessage.cs" />
