@@ -10,7 +10,7 @@ namespace ElmCommunicator.Commands.ElmCommands
     {
         public BypassInitializationSendMessage()
         {
-            this.Command = "BI";
+            this.Command = "AT BI";
         }
     }
 }
