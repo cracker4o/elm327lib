@@ -65,6 +65,7 @@
     <Compile Include="Commands\ElmCommands\DescribeCurrentProtocolSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\EchoCommandsSetSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\EnableJ1939ElmDataFormatSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\EnableJ1939SaeDataFormatSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\FastInitiationSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\FlowControlSetDataToSetSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\FlowControlSetHeaderToSetSendMessage.cs" />
@@ -75,6 +76,9 @@
     <Compile Include="Commands\ElmCommands\IdentifyYourselfSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\InFrameResponseControlSetSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\IsoInitAddressSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\J1939HeaderFormattingSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\J1939TimerMultiplierSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\KeyWordsManageSetSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\MonitorDm1SendMessage.cs" />
     <Compile Include="Commands\ElmCommands\SetAllToDefaultsSetSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\SetIsoBaudRateSetSendMessage.cs" />
