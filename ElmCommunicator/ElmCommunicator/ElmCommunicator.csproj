@@ -79,7 +79,12 @@
     <Compile Include="Commands\ElmCommands\J1939HeaderFormattingSetSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\J1939TimerMultiplierSetSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\KeyWordsManageSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\LinefeedsOnOffSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\LowPowerModeEnableSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\MemoryOnOffSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\MonitorAllMessagesSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\MonitorDm1SendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\MonitorForPgnSetSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\SetAllToDefaultsSetSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\SetIsoBaudRateSetSendMessage.cs" />
     <Compile Include="Commands\ICommunicationMessage.cs" />

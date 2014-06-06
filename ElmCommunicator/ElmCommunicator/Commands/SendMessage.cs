@@ -29,8 +29,8 @@ namespace ElmCommunicator.Commands
 
         protected bool CheckValidHexNumberByte(string data)
         {
-            byte validData;
-            return byte.TryParse(data, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out validData);
+            int validData;
+            return int.TryParse(data, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out validData);
         }
 
         public IReceiveMessage ResponseMessage { get; set; }
