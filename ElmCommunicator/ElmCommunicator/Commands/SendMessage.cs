@@ -27,7 +27,7 @@ namespace ElmCommunicator.Commands
             return string.Format("{0}{1}{2}{3}", this.StartTermination, this.Command, this.Data, this.EndTermination);
         }
 
-        protected bool CheckValidHexNumberByte(string data)
+        internal bool CheckValidHexNumberByte(string data)
         {
             int validData;
             return int.TryParse(data, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out validData);

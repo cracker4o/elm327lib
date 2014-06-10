@@ -7,11 +7,11 @@ using System.Threading.Tasks;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
-    public class EchoCommandsSetSendMessage : SendMessage
+    public class PrintSpacesOnOffSetSendMessage : SendMessage
     {
-        public EchoCommandsSetSendMessage(bool state)
+        public PrintSpacesOnOffSetSendMessage(bool state)
         {
-            this.Command = "AT E";
+            this.Command = "AT S";
             this.Data = Convert.ToInt32(state).ToString(CultureInfo.InvariantCulture);
         }
     }

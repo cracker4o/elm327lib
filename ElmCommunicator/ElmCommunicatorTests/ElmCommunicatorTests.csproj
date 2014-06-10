@@ -56,6 +56,7 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
+    <Compile Include="Commands\SendMessageTests.cs" />
     <Compile Include="Commands\SetIsoBaudRateSetSendMessageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="ReceiverTests.cs" />
