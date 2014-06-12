@@ -97,6 +97,7 @@
     <Compile Include="Commands\ElmCommands\ReadDataInUserMemorySendMessage.cs" />
     <Compile Include="Commands\ElmCommands\ReadInputVoltageSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\ReceiveAddressSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\ResetAllSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\ResponsesSetSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\SaveDataByteSetSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\SendRtrMessageSendMessage.cs" />
@@ -104,6 +105,18 @@
     <Compile Include="Commands\ElmCommands\SetHeaderOoSetSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\SetIsoBaudRateSetSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\SetProtocolBParametersSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SetProtocolSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SetProtocolToAutoSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SetReceiveAddressToSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SetTimeoutSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SetWakeUpMessageToSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SetWakeUpSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\StandardSequenceForSerchesSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\TesterAddressSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\TryProtocolSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\TryProtocolToAutoSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\VariableDataLengthsSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\WarmStartSendMessage.cs" />
     <Compile Include="Commands\ICommunicationMessage.cs" />
     <Compile Include="Commands\IReceiveMessage.cs" />
     <Compile Include="Commands\ISendMessage.cs" />
