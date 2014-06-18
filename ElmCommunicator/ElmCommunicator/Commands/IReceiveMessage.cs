@@ -9,5 +9,6 @@ namespace ElmCommunicator.Commands
     public interface IReceiveMessage : ICommunicationMessage
     {
         IReceiveMessage Parse(string message);
+        int HexToDec(string hex);
     }
 }

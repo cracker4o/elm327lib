@@ -7,18 +7,16 @@ using ElmCommunicator.Commands;
 
 namespace ElmCommunicator.Responses.ElmResponses
 {
-    public class ActivityMonitorTimeoutResponseMessage : ResponseMessage
+    public class SetProtocolResponseMessage : ResponseMessage
     {
-        public ActivityMonitorTimeoutResponseMessage()
+        public SetProtocolResponseMessage()
         {
-            this.Command = "AT AMT";
+            this.Command = "AT SP";
         }
 
         public override IReceiveMessage Parse(string message)
         {
             this.Data = message;
-
-            return this;
         }
     }
 }

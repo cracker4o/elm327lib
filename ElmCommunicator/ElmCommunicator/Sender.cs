@@ -35,11 +35,11 @@ namespace ElmCommunicator
 
             if (this._serialPort.IsOpen)
             {
-                this.LastMessage = message.ResponseMessage;
+                this.MessageResponse = message.ResponseMessage;
                 this._serialPort.Write(message.ToString());
             }
         }
 
-        public IReceiveMessage LastMessage { get; set; }
+        public IReceiveMessage MessageResponse { get; set; }
     }
 }

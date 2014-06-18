@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -14,5 +15,12 @@ namespace ElmCommunicator.Responses
         public string StartTermination { get; set; }
         public string EndTermination { get; set; }
         public abstract IReceiveMessage Parse(string message);
+        public int HexToDec(string hex)
+        {
+            if(string.IsNullOrEmpty(hex))
+                throw new ArgumentNullException("hex");
+
+            return int.Parse(hex, NumberStyles.HexNumber);
+        }
     }
 }

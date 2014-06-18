@@ -29,15 +29,15 @@ namespace ElmCommunicatorTests
         [Test]
         public void PortDataReceived()
         {
-            string expectedMessage = "My command here";
+            const string expectedMessage = "3C";
             string actualMessage = string.Empty;
 
             this._serialPortMock.Expect(s => s.ReadExisting())
                 .Repeat.Once()
-                .Return(actualMessage);
+                .Return(expectedMessage);
 
-            this._communicator.Sender.LastMessage = new ActivityMonitorCountResponseMessage();
-            this._communicator.Receiver.OnProcessMessage += message => expectedMessage = message.ToString();
+            this._communicator.Sender.MessageResponse = new ActivityMonitorCountResponseMessage();
+            this._communicator.Receiver.OnProcessMessage += message => actualMessage = message.Data;
             this._communicator.PortDataReceived(this._serialPortMock, null);
 
             Assert.AreEqual(expectedMessage, actualMessage);

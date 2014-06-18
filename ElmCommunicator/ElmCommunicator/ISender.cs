@@ -13,6 +13,6 @@ namespace ElmCommunicator
     {
         void Send(ISendMessage message);
 
-        IReceiveMessage LastMessage { get; set; }
+        IReceiveMessage MessageResponse { get; set; }
     }
 }

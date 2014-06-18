@@ -133,12 +133,23 @@
     <Compile Include="Responses\ElmResponses\AllowLongResponseMessages.cs" />
     <Compile Include="Responses\ElmResponses\AutoReceiveResponseMessage.cs" />
     <Compile Include="Responses\ElmResponses\BaudRateDivisorResponseMessage.cs" />
+    <Compile Include="Responses\ElmResponses\EchoCommandsResponseMessage.cs" />
+    <Compile Include="Responses\ElmResponses\SetProtocolResponseMessage.cs" />
     <Compile Include="Responses\ResponseMessage.cs" />
     <Compile Include="Sender.cs" />
     <Compile Include="SerialCommunicator.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="Commands\ObdIICommands\" />
+    <Folder Include="Commands\ObdIICommands\ClearDiagnosticCodes\" />
+    <Folder Include="Commands\ObdIICommands\ControlObdOperation\" />
+    <Folder Include="Commands\ObdIICommands\OtherSystemMonitoring\" />
+    <Folder Include="Commands\ObdIICommands\OxygenSensorMonitoring\" />
+    <Folder Include="Commands\ObdIICommands\PermanentDtc\" />
+    <Folder Include="Commands\ObdIICommands\RequestVehicleInformation\" />
+    <Folder Include="Commands\ObdIICommands\ShowCurrentData\" />
+    <Folder Include="Commands\ObdIICommands\ShowFreezeFrameData\" />
+    <Folder Include="Commands\ObdIICommands\ShowLastDrivingCodes\" />
+    <Folder Include="Commands\ObdIICommands\ShowTroubleCodes\" />
     <Folder Include="Responses\ObdIIResponses\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

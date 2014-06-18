@@ -16,10 +16,10 @@ namespace ElmCommunicator
         private ISender _sender;
         private readonly IReceiver _receiver;
 
-        internal void PortDataReceived(object sender, SerialDataReceivedEventArgs e)
+        internal virtual void PortDataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             var port = (SerialPort)sender;
-            var message = this._receiver.Parse(port.ReadExisting(), this._sender.LastMessage);
+            var message = this._receiver.Parse(port.ReadExisting(), this._sender.MessageResponse);
 
             if (message != null)
             {
