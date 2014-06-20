@@ -120,6 +120,7 @@
     <Compile Include="Commands\ICommunicationMessage.cs" />
     <Compile Include="Commands\IReceiveMessage.cs" />
     <Compile Include="Commands\ISendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\SupportedPidsSendMessage.cs" />
     <Compile Include="Commands\SendMessage.cs" />
     <Compile Include="Configurations\SerialConfig.cs" />
     <Compile Include="Configurations\ICommunicationConfig.cs" />
@@ -135,6 +136,7 @@
     <Compile Include="Responses\ElmResponses\BaudRateDivisorResponseMessage.cs" />
     <Compile Include="Responses\ElmResponses\EchoCommandsResponseMessage.cs" />
     <Compile Include="Responses\ElmResponses\SetProtocolResponseMessage.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\SupportedPidsResponseMessage.cs" />
     <Compile Include="Responses\ResponseMessage.cs" />
     <Compile Include="Sender.cs" />
     <Compile Include="SerialCommunicator.cs" />
@@ -146,11 +148,18 @@
     <Folder Include="Commands\ObdIICommands\OxygenSensorMonitoring\" />
     <Folder Include="Commands\ObdIICommands\PermanentDtc\" />
     <Folder Include="Commands\ObdIICommands\RequestVehicleInformation\" />
-    <Folder Include="Commands\ObdIICommands\ShowCurrentData\" />
     <Folder Include="Commands\ObdIICommands\ShowFreezeFrameData\" />
     <Folder Include="Commands\ObdIICommands\ShowLastDrivingCodes\" />
     <Folder Include="Commands\ObdIICommands\ShowTroubleCodes\" />
-    <Folder Include="Responses\ObdIIResponses\" />
+    <Folder Include="Responses\ObdIIResponses\ClearDiagnosticCodes\" />
+    <Folder Include="Responses\ObdIIResponses\ControlObdOperation\" />
+    <Folder Include="Responses\ObdIIResponses\OtherSystemMonitoring\" />
+    <Folder Include="Responses\ObdIIResponses\OxygenSensorMonitoring\" />
+    <Folder Include="Responses\ObdIIResponses\PermanentDtc\" />
+    <Folder Include="Responses\ObdIIResponses\RequestVehicleInformation\" />
+    <Folder Include="Responses\ObdIIResponses\ShowFreezeFrameData\" />
+    <Folder Include="Responses\ObdIIResponses\ShowLastDrivingCodes\" />
+    <Folder Include="Responses\ObdIIResponses\ShowTroubleCodes\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

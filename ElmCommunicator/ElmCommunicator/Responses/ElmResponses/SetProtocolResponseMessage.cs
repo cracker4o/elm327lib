@@ -17,6 +17,7 @@ namespace ElmCommunicator.Responses.ElmResponses
         public override IReceiveMessage Parse(string message)
         {
             this.Data = message;
+            return this;
         }
     }
 }

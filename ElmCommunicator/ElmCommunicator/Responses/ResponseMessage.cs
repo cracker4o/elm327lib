@@ -22,5 +22,38 @@ namespace ElmCommunicator.Responses
 
             return int.Parse(hex, NumberStyles.HexNumber);
         }
+
+        public byte ReverseByte(byte val)
+        {
+            byte result = 0;
+            int counter = 8;
+            while (counter > 0)
+            {
+                result <<= 1;
+                result |= (byte)(val & 1);
+                val = (byte)(val >> 1);
+                counter--;
+            }
+
+            return result;
+        }
+
+        public byte[] StringToByteArray(string hex, bool bitSwap = false)
+        {
+            hex = hex.Replace(" ", string.Empty);
+
+            return Enumerable.Range(0, hex.Length)
+                             .Where(x => x % 2 == 0)
+                             .Select(x =>
+                             {
+                                 byte result = Convert.ToByte(hex.Substring(x, 2), 16);
+                                 if (bitSwap)
+                                 {
+                                     result = this.ReverseByte(result);
+                                 }
+
+                                 return result;
+                             }).ToArray();
+        }
     }
 }
