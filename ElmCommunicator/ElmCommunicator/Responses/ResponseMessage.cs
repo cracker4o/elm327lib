@@ -1,9 +1,7 @@
 ﻿using System;
-using System.Collections.Generic;
+using System.Collections;
 using System.Globalization;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ElmCommunicator.Commands;
 
 namespace ElmCommunicator.Responses
@@ -15,6 +13,7 @@ namespace ElmCommunicator.Responses
         public string StartTermination { get; set; }
         public string EndTermination { get; set; }
         public abstract IReceiveMessage Parse(string message);
+
         public int HexToDec(string hex)
         {
             if(string.IsNullOrEmpty(hex))
@@ -54,6 +53,34 @@ namespace ElmCommunicator.Responses
 
                                  return result;
                              }).ToArray();
+        }
+
+        public byte ConvertBitArrayToByte(BitArray bits, int startIdx = 0, int length = 8)
+        {
+            if(length > 8)
+                throw new ArgumentOutOfRangeException("length");
+
+            if(bits.Length < 8)
+                throw new ArgumentOutOfRangeException("bits");
+
+            int output = 0;
+            int distance = 8 - length;
+
+            for (int i = 0; i < 8; i++)
+            {
+                if (distance > 0)
+                {
+                    distance--;
+                    continue;
+                }
+
+                if(bits.Get(i))
+                {
+                    output += (1 << (7 - i));
+                }
+            }
+
+            return (byte)output;
         }
     }
 }

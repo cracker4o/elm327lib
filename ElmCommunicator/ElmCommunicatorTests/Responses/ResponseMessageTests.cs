@@ -65,5 +65,51 @@ namespace ElmCommunicatorTests.Responses
             Assert.AreEqual(expectedArray, actualArray);
             Assert.AreEqual(expectedReverse, actualReverse);
         }
+
+        [Test]
+        public void ShouldThrowExceptionIfLengthMoreThanEight()
+        {
+            var expected = new ArgumentOutOfRangeException("length");
+            var bitArray = new BitArray(12);
+            bitArray[3] = true;
+
+            var actualException = Assert.Throws<ArgumentOutOfRangeException>(() => this._responseMessage.ConvertBitArrayToByte(bitArray, 1, 9));
+            Assert.AreEqual(expected.Message, actualException.Message);
+        }
+
+        [Test]
+        public void ShouldThrowExceptionIfBitsLengthLessThanEight()
+        {
+            var expected = new ArgumentOutOfRangeException("bits");
+            var bitArray = new BitArray(7);
+            bitArray[3] = true;
+
+            var actualException = Assert.Throws<ArgumentOutOfRangeException>(() => this._responseMessage.ConvertBitArrayToByte(bitArray, 1, 4));
+            Assert.AreEqual(expected.Message, actualException.Message);
+        }
+
+        [Test]
+        public void ShouldConvertBitArrayToByte()
+        {
+            var bitArray = new BitArray(8);
+            bitArray[4] = true;
+            const byte expectedByte = 8;
+
+            byte actualByte = this._responseMessage.ConvertBitArrayToByte(bitArray);
+
+            Assert.AreEqual(expectedByte, actualByte);
+        }
+
+        [Test]
+        public void ShouldConvertBitArrayWithLesThanEightBitsToByte()
+        {
+            var bitArray = new BitArray(12);
+            bitArray[3] = true;
+            const byte expectedByte = 16;
+
+            byte actualByte = this._responseMessage.ConvertBitArrayToByte(bitArray, 2, 5);
+
+            Assert.AreEqual(expectedByte, actualByte);
+        }
     }
 }

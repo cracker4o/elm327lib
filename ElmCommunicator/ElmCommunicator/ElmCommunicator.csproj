@@ -120,6 +120,7 @@
     <Compile Include="Commands\ICommunicationMessage.cs" />
     <Compile Include="Commands\IReceiveMessage.cs" />
     <Compile Include="Commands\ISendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\MonitorStatusSinceDtcSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\SupportedPidsSendMessage.cs" />
     <Compile Include="Commands\SendMessage.cs" />
     <Compile Include="Configurations\SerialConfig.cs" />
@@ -136,6 +137,7 @@
     <Compile Include="Responses\ElmResponses\BaudRateDivisorResponseMessage.cs" />
     <Compile Include="Responses\ElmResponses\EchoCommandsResponseMessage.cs" />
     <Compile Include="Responses\ElmResponses\SetProtocolResponseMessage.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\MonitorStatusSinceDtcCleared.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\SupportedPidsResponseMessage.cs" />
     <Compile Include="Responses\ResponseMessage.cs" />
     <Compile Include="Sender.cs" />
