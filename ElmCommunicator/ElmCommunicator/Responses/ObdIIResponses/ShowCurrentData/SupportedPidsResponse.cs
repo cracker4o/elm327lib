@@ -8,7 +8,7 @@ using ElmCommunicator.Commands;
 
 namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
 {
-    public class SupportedPidsResponseMessage : ResponseMessage
+    public class SupportedPidsResponse : ResponseMessage
     {
         private BitArray _supportedPids;
         public override IReceiveMessage Parse(string message)

@@ -15,7 +15,7 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
     /// C = 16 17 18 19 20 21 22 23
     /// D = 24 25 26 27 28 29 30 31
     /// </summary>
-    public class MonitorStatusSinceDtcCleared : ResponseMessage
+    public class MonitorStatusSinceDtcClearedResponse : ResponseMessage
     {
         public override IReceiveMessage Parse(string message)
         {
@@ -37,26 +37,32 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
             this.ComponentsTestFailed = bits[9];
             this.CatalystTest = bits[23];
             this.CatalystTestFailed = bits[31];
+            this.NmhcCatalyst = bits[23];
+            this.NmhcCatalystFailed = bits[31];
             this.HeatedCatalyst = bits[22];
             this.HeatedCatalystTestFailed = bits[30];
-
+            this.NoxScrMonitor = bits[22];
+            this.NoxScrMonitorFailed = bits[30];
             this.EvaporativeSystem = bits[21];
             this.EvaporativeSystemTestFailed = bits[29];
-
             this.SecondaryAirSystem = bits[20];
             this.SecondaryAirSystemTestFailed = bits[28];
-
+            this.BoostPressure = bits[20];
+            this.BoostPressureFailed = bits[28];
             this.AcRefrigerant = bits[19];
             this.AcRefrigerantTestFailed = bits[27];
-
             this.OxygenSensor = bits[18];
             this.OxygenSensorTestFailed = bits[26];
-
+            this.GetExhaustGasSensor = bits[18];
+            this.GetExhaustGasSensorFailed = bits[26];
             this.OxygenSensorHeater = bits[17];
             this.OxygenSensorHeaterTestFailed = bits[25];
-
+            this.GetPmFilterMonitoring = bits[17];
+            this.GetPmFilterMonitoringFailed = bits[25];
             this.EgrSystemTest = bits[16];
             this.EgrSystemTestFailed = bits[24];
+            this.GetEgrAndVttSystem = bits[16];
+            this.GetEgrAndVttSystemFailed = bits[24];
 
             return this;
         }
@@ -122,5 +128,29 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
         public bool EgrSystemTest { get; private set; }
 
         public bool EgrSystemTestFailed { get; private set; }
+
+        public bool NmhcCatalyst { get; private set; }
+
+        public bool NmhcCatalystFailed { get; private set; }
+
+        public bool NoxScrMonitor { get; private set; }
+
+        public bool NoxScrMonitorFailed { get; private set; }
+
+        public bool BoostPressure { get; private set; }
+
+        public bool BoostPressureFailed { get; private set; }
+
+        public bool GetExhaustGasSensor { get; private set; }
+
+        public bool GetExhaustGasSensorFailed { get; private set; }
+
+        public bool GetPmFilterMonitoring { get; private set; }
+
+        public bool GetPmFilterMonitoringFailed { get; private set; }
+
+        public bool GetEgrAndVttSystem { get; private set; }
+
+        public bool GetEgrAndVttSystemFailed { get; private set; }
     }
 }

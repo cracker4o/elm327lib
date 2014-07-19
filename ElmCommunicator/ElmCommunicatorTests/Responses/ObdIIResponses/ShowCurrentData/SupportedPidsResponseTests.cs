@@ -11,14 +11,14 @@ using Rhino.Mocks;
 namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
 {
     [TestFixture]
-    public class SupportedPidsResponseMessageTests
+    public class SupportedPidsResponseTests
     {
-        private SupportedPidsResponseMessage _response;
+        private SupportedPidsResponse _response;
 
         [SetUp]
         public void SetUp()
         {
-            this._response = MockRepository.GeneratePartialMock<SupportedPidsResponseMessage>();
+            this._response = MockRepository.GeneratePartialMock<SupportedPidsResponse>();
         }
 
         [Test]

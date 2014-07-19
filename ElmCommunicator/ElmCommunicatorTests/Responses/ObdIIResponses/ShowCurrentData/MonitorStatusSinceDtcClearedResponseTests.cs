@@ -1,30 +1,25 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData;
+﻿using ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData;
 using NUnit.Framework;
 using Rhino.Mocks;
 
 namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
 {
     [TestFixture]
-    public class MonitorStatusSinceDtcClearedTests
+    public class MonitorStatusSinceDtcClearedResponseTests
     {
-        private MonitorStatusSinceDtcCleared _response;
+        private MonitorStatusSinceDtcClearedResponse _response;
 
         [SetUp]
         public void SetUp()
         {
-            this._response = MockRepository.GeneratePartialMock<MonitorStatusSinceDtcCleared>();
+            this._response = MockRepository.GeneratePartialMock<MonitorStatusSinceDtcClearedResponse>();
         }
 
         [Test]
         public void ShouldGetCelOrMil()
         {
             const string responseMessage = "41 01 81 00 00 00";
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.IsTrue(response.MilStatus);
         }
@@ -34,7 +29,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 00 00";
             const int expectedDtcCount = 3;
-            var response = (MonitorStatusSinceDtcCleared) this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse) this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedDtcCount, response.DtcCount);
         }
@@ -44,7 +39,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 00 00";
             const bool isSparIgnitionMotor = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(isSparIgnitionMotor, response.IsSparkIgnitionMotor);
         }
@@ -54,7 +49,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 01 00 00";
             const bool expectedMisfireResult = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedMisfireResult, response.MisfireOccured);
         }
@@ -64,7 +59,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 16 00 00";
             const bool expectedMisfireFailedResult = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedMisfireFailedResult, response.MisfireTestFailed);
         }
@@ -74,7 +69,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 02 00 00";
             const bool expectedFuelSystemProbeResult = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedFuelSystemProbeResult, response.FuelSystemTest);
         }
@@ -84,7 +79,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 20 00 00";
             const bool expectedFuelSystemFailedResult = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedFuelSystemFailedResult, response.FuelSystemTestFailed);
         }
@@ -94,7 +89,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 04 00 00";
             const bool expectedComponentsTestResult = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedComponentsTestResult, response.ComponentsTest);
         }
@@ -104,7 +99,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 40 00 00";
             const bool expectedComponentsTestFailedResult = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedComponentsTestFailedResult, response.ComponentsTestFailed);
         }
@@ -114,7 +109,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 01 00";
             const bool expectedCatalystResult = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedCatalystResult, response.CatalystTest);
         }
@@ -124,7 +119,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 00 01";
             const bool expectedCatalystFailedResult = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedCatalystFailedResult, response.CatalystTestFailed);
         }
@@ -134,7 +129,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 02 00";
             const bool expectedHeatedCatalyst = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedHeatedCatalyst, response.HeatedCatalyst);
         }
@@ -144,7 +139,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 00 02";
             const bool expectedHeatedCatalystFailedTest = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedHeatedCatalystFailedTest, response.HeatedCatalystTestFailed);
         }
@@ -154,7 +149,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 04 00";
             const bool expectedEvaporativeSystemTest = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedEvaporativeSystemTest, response.EvaporativeSystem);
         }
@@ -164,7 +159,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 00 04";
             const bool expectedEvaporativeSystemFailedTest = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedEvaporativeSystemFailedTest, response.EvaporativeSystemTestFailed);
         }
@@ -174,7 +169,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 08 00";
             const bool expectedSecondaryAirSystemTest = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedSecondaryAirSystemTest, response.SecondaryAirSystem);
         }
@@ -184,7 +179,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 00 08";
             const bool expectedSecondaryAirSystemTestFailed = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedSecondaryAirSystemTestFailed, response.SecondaryAirSystemTestFailed);
         }
@@ -194,7 +189,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 10 00";
             const bool expectedAcRefrigerantTest = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedAcRefrigerantTest, response.AcRefrigerant);
         }
@@ -204,7 +199,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 00 10";
             const bool expectedAcRefrigerantTestFailedTest = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedAcRefrigerantTestFailedTest, response.AcRefrigerantTestFailed);
         }
@@ -214,7 +209,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 20 00";
             const bool expectedOxygenSensorTestResult = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedOxygenSensorTestResult, response.OxygenSensor);
         }
@@ -224,7 +219,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 00 20";
             const bool expectedOxygenSensorTestFailedResult = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedOxygenSensorTestFailedResult, response.OxygenSensorTestFailed);
         }
@@ -234,7 +229,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 40 00";
             const bool expectedOxygenSensorHeaterTestResult = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedOxygenSensorHeaterTestResult, response.OxygenSensorHeater);
         }
@@ -244,7 +239,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 00 40";
             const bool expectedOxygenSensorHeaterFailedTestResult = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedOxygenSensorHeaterFailedTestResult, response.OxygenSensorHeaterTestFailed);
         }
@@ -254,7 +249,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 80 00";
             const bool expectedGetEgrSystemTestResult = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedGetEgrSystemTestResult, response.EgrSystemTest);
         }
@@ -264,7 +259,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string responseMessage = "41 01 83 00 00 80";
             const bool expectedGetEgrSystemTestResult = true;
-            var response = (MonitorStatusSinceDtcCleared)this._response.Parse(responseMessage);
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
 
             Assert.AreEqual(expectedGetEgrSystemTestResult, response.EgrSystemTestFailed);
         }
@@ -272,31 +267,121 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldGetNmhcCatalystTestResult()
         {
+            const string responseMessage = "41 01 83 00 01 00";
+            const bool nMhcCatalystResult = true;
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
+
+            Assert.AreEqual(nMhcCatalystResult, response.NmhcCatalyst);
+        }
+
+        [Test]
+        public void ShouldGetNmhcCatalystTestFailedResult()
+        {
+            const string responseMessage = "41 01 83 00 00 01";
+            const bool nMhcCatalystFailedResult = true;
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
+
+            Assert.AreEqual(nMhcCatalystFailedResult, response.NmhcCatalystFailed);
         }
 
         [Test]
         public void ShouldGetNoxScrMonitorTestResult()
         {
+            const string responseMessage = "41 01 83 00 02 00";
+            const bool expectedNoxScrMonitor = true;
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
+
+            Assert.AreEqual(expectedNoxScrMonitor, response.NoxScrMonitor);
+        }
+
+        [Test]
+        public void ShouldGetNoxScrMonitorTestFailedResult()
+        {
+            const string responseMessage = "41 01 83 00 00 02";
+            const bool expectedNoxScrMonitorFailed = true;
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
+
+            Assert.AreEqual(expectedNoxScrMonitorFailed, response.NoxScrMonitorFailed);
         }
 
         [Test]
         public void ShouldGetBoostPressureTestResult()
         {
+            const string responseMessage = "41 01 83 00 08 00";
+            const bool expectedBoostPressure = true;
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
+
+            Assert.AreEqual(expectedBoostPressure, response.BoostPressure);
+        }
+
+        [Test]
+        public void ShouldGetBoostPressureTestFailedResult()
+        {
+            const string responseMessage = "41 01 83 00 00 08";
+            const bool expectedBoostPressureFailed = true;
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
+
+            Assert.AreEqual(expectedBoostPressureFailed, response.BoostPressureFailed);
         }
 
         [Test]
         public void ShouldGetExhaustGasSensorTestResult()
         {
+            const string responseMessage = "41 01 83 00 20 00";
+            const bool expectedExhaustGasSensor = true;
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
+
+            Assert.AreEqual(expectedExhaustGasSensor, response.GetExhaustGasSensor);
+        }
+
+        [Test]
+        public void ShouldGetExhaustGasSensorTestFailedResult()
+        {
+            const string responseMessage = "41 01 83 00 00 20";
+            const bool exhaustGasSensorFailed = true;
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
+
+            Assert.AreEqual(exhaustGasSensorFailed, response.GetExhaustGasSensorFailed);
         }
 
         [Test]
         public void ShouldGetPmFilterMonitoringTestResult()
         {
+            const string responseMessage = "41 01 83 00 40 00";
+            const bool expectedoPmFilterMonitoring = true;
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
+
+            Assert.AreEqual(expectedoPmFilterMonitoring, response.GetPmFilterMonitoring);
+        }
+
+        [Test]
+        public void ShouldGetPmFilterMonitoringTestFailedResult()
+        {
+            const string responseMessage = "41 01 83 00 00 40";
+            const bool expectedPmFilterMonitoringTestFailed = true;
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
+
+            Assert.AreEqual(expectedPmFilterMonitoringTestFailed, response.GetPmFilterMonitoringFailed);
         }
 
         [Test]
         public void ShouldGetEgrAndVttSystemTestResult()
         {
+            const string responseMessage = "41 01 83 00 80 00";
+            const bool expectedGetEgrAndVttSystemTestResult = true;
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
+
+            Assert.AreEqual(expectedGetEgrAndVttSystemTestResult, response.GetEgrAndVttSystem);
+        }
+
+        [Test]
+        public void ShouldGetEgrAndVttSystemTestFailedResult()
+        {
+            const string responseMessage = "41 01 83 00 00 80";
+            const bool expectedGetEgrAndVttSystemTestResult = true;
+            var response = (MonitorStatusSinceDtcClearedResponse)this._response.Parse(responseMessage);
+
+            Assert.AreEqual(expectedGetEgrAndVttSystemTestResult, response.GetEgrAndVttSystemFailed);
         }
     }
 }
