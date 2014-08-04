@@ -111,5 +111,16 @@ namespace ElmCommunicatorTests.Responses
 
             Assert.AreEqual(expectedByte, actualByte);
         }
+
+        [Test]
+        public void ShouldGetTheCommandFromTheMessage()
+        {
+            string message = "41 00 01 02 03";
+            string expectedCommand = "4100";
+            string actualCommand = this._responseMessage.GetCommand(ref message);
+
+            
+            Assert.AreEqual(expectedCommand, actualCommand);
+        }
     }
 }

@@ -82,5 +82,11 @@ namespace ElmCommunicator.Responses
 
             return (byte)output;
         }
+
+        public string GetCommand(ref string message)
+        {
+            message = message.Replace(" ", string.Empty);
+            return message.Substring(0, 4);
+        }
     }
 }

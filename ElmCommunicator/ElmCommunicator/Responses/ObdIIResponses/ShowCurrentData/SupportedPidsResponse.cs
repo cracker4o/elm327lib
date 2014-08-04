@@ -13,8 +13,7 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
         private BitArray _supportedPids;
         public override IReceiveMessage Parse(string message)
         {
-            message = message.Replace(" ", string.Empty);
-            this.Command = message.Substring(0, 4);
+            this.Command = this.GetCommand(ref message);
             var pids = this.StringToByteArray(message.Substring(4), true);
             this._supportedPids = new BitArray(pids);
 

@@ -19,8 +19,7 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
     {
         public override IReceiveMessage Parse(string message)
         {
-            message = message.Replace(" ", string.Empty);
-            this.Command = message.Substring(0, 4);
+            this.Command = this.GetCommand(ref message);
             message = message.Substring(4);
             var bytes = this.StringToByteArray(message, true);
             var bits = new BitArray(bytes);
