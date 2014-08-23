@@ -38,6 +38,9 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="Units">
+      <HintPath>..\packages\Units.2014.1.17.1\lib\portable-net4+sl4+wp71+win8\Units.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ElmCommands\ActivityMonitorCountSendMessage.cs" />
@@ -121,6 +124,7 @@
     <Compile Include="Commands\IReceiveMessage.cs" />
     <Compile Include="Commands\ISendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\CalculatedEngineLoadValueSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\EngineCoolantTempSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\FreezeDtcSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\FuelSystemStatusSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\MonitorStatusSinceDtcSendMessage.cs" />
@@ -141,6 +145,7 @@
     <Compile Include="Responses\ElmResponses\EchoCommandsResponseMessage.cs" />
     <Compile Include="Responses\ElmResponses\SetProtocolResponseMessage.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\CalculatedEngineLoadValueResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\EngineCoolantTemperatureResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FreezeDtcResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelSystemStatusResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\MonitorStatusSinceDtcClearedResponse.cs" />
@@ -168,6 +173,9 @@
     <Folder Include="Responses\ObdIIResponses\ShowFreezeFrameData\" />
     <Folder Include="Responses\ObdIIResponses\ShowLastDrivingCodes\" />
     <Folder Include="Responses\ObdIIResponses\ShowTroubleCodes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 

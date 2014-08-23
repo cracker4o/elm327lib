@@ -43,4 +43,25 @@ namespace ElmCommunicatorTests
             Assert.AreEqual(expectedMessage, actualMessage);
         }
     }
+
+    public class UnauthorizedException : Exception
+    {
+        private string _userX;
+
+        private string _locationY;
+
+        public UnauthorizedException(string userX, string locationY)
+        {
+            _userX = userX;
+            _locationY = locationY;
+        }
+
+        public override string Message
+        {
+            get
+            {
+                return string.Format("User {0} is not able to access {1}", _userX, _locationY);
+            }
+        }
+    }
 }
