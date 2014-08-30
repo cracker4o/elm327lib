@@ -128,6 +128,7 @@
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\FreezeDtcSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\FuelSystemStatusSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\MonitorStatusSinceDtcSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\ShortTermFuelTrimSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\SupportedPidsSendMessage.cs" />
     <Compile Include="Commands\SendMessage.cs" />
     <Compile Include="Configurations\SerialConfig.cs" />
