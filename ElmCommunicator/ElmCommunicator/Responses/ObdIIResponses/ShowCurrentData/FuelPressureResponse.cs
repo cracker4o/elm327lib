@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using ElmCommunicator.Commands;
+using Units;
 
 namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
 {
@@ -14,10 +15,10 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
             this.Command = this.GetCommand(ref message);
             this.Data = message.Substring(4);
             int value = this.HexToDec(this.Data);
-            this.Pressure = value*3;
+            this.Pressure = (value*3)*Pressure.Kilopascal;
             return this;
         }
 
-        public int Pressure { get; private set; }
+        public Pressure Pressure { get; private set; }
     }
 }
