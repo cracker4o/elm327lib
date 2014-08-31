@@ -126,7 +126,9 @@
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\CalculatedEngineLoadValueSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\EngineCoolantTempSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\FreezeDtcSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\FuelPressureSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\FuelSystemStatusSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\LongTermFuelTrimSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\MonitorStatusSinceDtcSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\ShortTermFuelTrimSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\SupportedPidsSendMessage.cs" />
@@ -148,8 +150,11 @@
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\CalculatedEngineLoadValueResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\EngineCoolantTemperatureResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FreezeDtcResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelPressureResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelSystemStatusResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelTrimResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\MonitorStatusSinceDtcClearedResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\ShortTermFuelTrimResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\SupportedPidsResponse.cs" />
     <Compile Include="Responses\ResponseMessage.cs" />
     <Compile Include="Sender.cs" />

@@ -60,6 +60,7 @@
   </Choose>
   <ItemGroup>
     <Compile Include="Commands\ElmCommands\SetProtocolSetSendMessageTests.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\LongTermFuelTrimSendMessageTests.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\ShortTermFuelTrimSendMessageTests.cs" />
     <Compile Include="Commands\SendMessageTests.cs" />
     <Compile Include="Commands\ElmCommands\SetIsoBaudRateSetSendMessageTests.cs" />
@@ -68,7 +69,9 @@
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\CalculatedEngineLoadValueResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\EngineCoolantTemperatureResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FreezeDtcResponseTests.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelPressureResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelSystemStatusResponseTests.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelTrimResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\MonitorStatusSinceDtcClearedResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\SupportedPidsResponseTests.cs" />
     <Compile Include="Responses\ResponseMessageTests.cs" />
