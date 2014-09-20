@@ -68,10 +68,12 @@
     <Compile Include="ReceiverTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\CalculatedEngineLoadValueResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\EngineCoolantTemperatureResponseTests.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\EngineRpmResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FreezeDtcResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelPressureResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelSystemStatusResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelTrimResponseTests.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\IntakeManifoldPressureResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\MonitorStatusSinceDtcClearedResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\SupportedPidsResponseTests.cs" />
     <Compile Include="Responses\ResponseMessageTests.cs" />

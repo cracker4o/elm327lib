@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData;
+﻿using ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData;
 using NUnit.Framework;
 
 namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
