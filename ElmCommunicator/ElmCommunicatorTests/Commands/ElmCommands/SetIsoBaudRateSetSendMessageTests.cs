@@ -10,7 +10,6 @@ namespace ElmCommunicatorTests.Commands.ElmCommands
         [SetUp]
         public void SetUp()
         {
-            
         }
 
         [Test]

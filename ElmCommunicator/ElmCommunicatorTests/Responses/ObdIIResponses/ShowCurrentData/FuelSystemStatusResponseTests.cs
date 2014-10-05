@@ -6,31 +6,31 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
     [TestFixture]
     public class FuelSystemStatusResponseTests
     {
-        private FuelSystemStatusResponse _response;
-
         [SetUp]
         public void SetUp()
         {
-            this._response = new FuelSystemStatusResponse();
+            _response = new FuelSystemStatusResponse();
+        }
+
+        private FuelSystemStatusResponse _response;
+
+        [Test]
+        public void ShouldGetTheTwoBytesFromTheMessage()
+        {
+            const string message = "41 00 02 04";
+            var result = (FuelSystemStatusResponse) _response.Parse(message);
+
+            Assert.AreEqual(FuelSystemStatus.ClosedLoopOxySensor, result.FuelSystemOne);
+            Assert.AreEqual(FuelSystemStatus.OpenLoopEngineLoad, result.FuelSystemTwo);
         }
 
         [Test]
         public void ShouldReturnAResult()
         {
             const string message = "41 00 02 04";
-            var result = this._response.Parse(message) as FuelSystemStatusResponse;
-            
+            var result = _response.Parse(message) as FuelSystemStatusResponse;
+
             Assert.IsNotNull(result);
-        }
-
-        [Test]
-        public void ShouldGetTheTwoBytesFromTheMessage()
-        {
-            const string message = "41 00 02 04";
-            var result = (FuelSystemStatusResponse)this._response.Parse(message);
-
-            Assert.AreEqual(FuelSystemStatus.ClosedLoopOxySensor, result.FuelSystemOne);
-            Assert.AreEqual(FuelSystemStatus.OpenLoopEngineLoad, result.FuelSystemTwo);
         }
     }
 }

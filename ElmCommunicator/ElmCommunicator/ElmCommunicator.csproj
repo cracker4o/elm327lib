@@ -31,13 +31,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Xml" />
     <Reference Include="Units">
       <HintPath>..\packages\Units.2014.1.17.1\lib\portable-net4+sl4+wp71+win8\Units.dll</HintPath>
     </Reference>
@@ -134,6 +128,7 @@
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\MonitorStatusSinceDtcSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\ShortTermFuelTrimSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\SupportedPidsSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\VehicleSpeedSendMessage.cs" />
     <Compile Include="Commands\SendMessage.cs" />
     <Compile Include="Configurations\SerialConfig.cs" />
     <Compile Include="Configurations\ICommunicationConfig.cs" />
@@ -160,6 +155,7 @@
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\MonitorStatusSinceDtcClearedResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\ShortTermFuelTrimResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\SupportedPidsResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\VehicleSpeedResponse.cs" />
     <Compile Include="Responses\ResponseMessage.cs" />
     <Compile Include="Sender.cs" />
     <Compile Include="SerialCommunicator.cs" />

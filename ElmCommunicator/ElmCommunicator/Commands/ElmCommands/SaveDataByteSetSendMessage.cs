@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
@@ -10,14 +6,14 @@ namespace ElmCommunicator.Commands.ElmCommands
     {
         public SaveDataByteSetSendMessage(string data)
         {
-            if(string.IsNullOrEmpty(data))
+            if (string.IsNullOrEmpty(data))
                 throw new ArgumentNullException("data");
 
-            if(this.CheckValidHexNumberByte(data))
+            if (CheckValidHexNumberByte(data))
                 throw new OutOfMemoryException("data");
 
-            this.Command = "AT SD";
-            this.Data = data;
+            Command = "AT SD";
+            Data = data;
         }
     }
 }

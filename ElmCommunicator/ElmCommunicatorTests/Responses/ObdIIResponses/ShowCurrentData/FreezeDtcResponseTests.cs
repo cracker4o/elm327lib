@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData;
+﻿using ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData;
 using NUnit.Framework;
 
 namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
@@ -11,13 +6,13 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
     [TestFixture]
     public class FreezeDtcResponseTests
     {
-        private FreezeDtcResponse _freezeDtc;
-
         [SetUp]
         public void SetUp()
         {
-            this._freezeDtc = new FreezeDtcResponse();
+            _freezeDtc = new FreezeDtcResponse();
         }
+
+        private FreezeDtcResponse _freezeDtc;
 
         [Test]
         public void ShouldReceiveTwoByteResult()
@@ -25,10 +20,9 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
             string messageResponse = "43 00 03 09";
             byte expected = 3;
             byte second = 9;
-            this._freezeDtc.Parse(messageResponse);
-            Assert.AreEqual(expected, this._freezeDtc.ReceivedBytes[0]);
-            Assert.AreEqual(second, this._freezeDtc.ReceivedBytes[1]);
+            _freezeDtc.Parse(messageResponse);
+            Assert.AreEqual(expected, _freezeDtc.ReceivedBytes[0]);
+            Assert.AreEqual(second, _freezeDtc.ReceivedBytes[1]);
         }
-
     }
 }

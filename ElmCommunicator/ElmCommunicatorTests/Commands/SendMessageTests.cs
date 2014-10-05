@@ -1,11 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using ElmCommunicator.Commands;
 using NUnit.Framework;
-using ElmCommunicator.Commands;
 using Rhino.Mocks;
 
 namespace ElmCommunicatorTests.Commands
@@ -13,12 +7,26 @@ namespace ElmCommunicatorTests.Commands
     [TestFixture]
     public class SendMessageTests
     {
-        private SendMessage _sendMessagePartialMock;
-
         [SetUp]
         public void SetUp()
         {
-            this._sendMessagePartialMock = MockRepository.GeneratePartialMock<SendMessage>();
+            _sendMessagePartialMock = MockRepository.GeneratePartialMock<SendMessage>();
+        }
+
+        private SendMessage _sendMessagePartialMock;
+
+        [Test]
+        public void CheckValidHexNumberByteShould()
+        {
+            string expectedHexNumber = "1D";
+            bool result = _sendMessagePartialMock.CheckValidHexNumberByte(expectedHexNumber);
+
+            Assert.AreEqual(true, result);
+
+            expectedHexNumber = "MS";
+            result = _sendMessagePartialMock.CheckValidHexNumberByte(expectedHexNumber);
+
+            Assert.AreEqual(false, result);
         }
 
         [Test]
@@ -28,28 +36,14 @@ namespace ElmCommunicatorTests.Commands
             const string command = "CMD";
             const string data = "123";
             const string endTermination = "\r\n";
-            var expectedResponse = string.Format("{0}{1}{2}{3}", startTermination, command, data, endTermination);
+            string expectedResponse = string.Format("{0}{1}{2}{3}", startTermination, command, data, endTermination);
 
-            this._sendMessagePartialMock.StartTermination = startTermination;
-            this._sendMessagePartialMock.Command = command;
-            this._sendMessagePartialMock.Data = data;
-            this._sendMessagePartialMock.EndTermination = endTermination;
-            
-            Assert.AreEqual(expectedResponse, this._sendMessagePartialMock.ToString());
-        }
+            _sendMessagePartialMock.StartTermination = startTermination;
+            _sendMessagePartialMock.Command = command;
+            _sendMessagePartialMock.Data = data;
+            _sendMessagePartialMock.EndTermination = endTermination;
 
-        [Test]
-        public void CheckValidHexNumberByteShould()
-        {
-            string expectedHexNumber = "1D";
-            bool result = this._sendMessagePartialMock.CheckValidHexNumberByte(expectedHexNumber);
-            
-            Assert.AreEqual(true, result);
-
-            expectedHexNumber = "MS";
-            result = this._sendMessagePartialMock.CheckValidHexNumberByte(expectedHexNumber);
-
-            Assert.AreEqual(false, result);
+            Assert.AreEqual(expectedResponse, _sendMessagePartialMock.ToString());
         }
     }
 }

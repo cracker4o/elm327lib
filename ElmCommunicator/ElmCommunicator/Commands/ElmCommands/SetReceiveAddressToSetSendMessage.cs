@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
@@ -10,11 +6,11 @@ namespace ElmCommunicator.Commands.ElmCommands
     {
         public SetReceiveAddressToSetSendMessage(string data)
         {
-            if(this.CheckValidHexNumberByte(data))
+            if (CheckValidHexNumberByte(data))
                 throw new ArgumentOutOfRangeException("data", "The data parameter is not a HEX number.");
 
-            this.Command = "AT SR";
-            this.Data = data;
+            Command = "AT SR";
+            Data = data;
         }
     }
 }

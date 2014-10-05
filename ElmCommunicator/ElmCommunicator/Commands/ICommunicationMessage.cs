@@ -1,12 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-
-namespace ElmCommunicator.Commands
+﻿namespace ElmCommunicator.Commands
 {
     /// <summary>
-    /// A communication message interfacewith standard COM message properties.
+    ///     A communication message interfacewith standard COM message properties.
     /// </summary>
     public interface ICommunicationMessage
     {

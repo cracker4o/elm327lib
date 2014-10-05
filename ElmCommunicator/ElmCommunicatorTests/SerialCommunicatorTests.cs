@@ -10,21 +10,21 @@ namespace ElmCommunicatorTests
     [TestFixture]
     public class SerialCommunicatorTests
     {
-        private SerialCommunicator _communicator;
-
-        private SerialPort _serialPortMock;
-
         [SetUp]
         public void SetUp()
         {
-            this._serialPortMock = MockRepository.GenerateMock<SerialPort>();
-            this._serialPortMock.Expect(o => o.Open())
+            _serialPortMock = MockRepository.GenerateMock<SerialPort>();
+            _serialPortMock.Expect(o => o.Open())
                 .Repeat.Any();
-            this._serialPortMock.Expect(o => o.Close())
+            _serialPortMock.Expect(o => o.Close())
                 .Repeat.Any();
 
-            this._communicator = new SerialCommunicator(this._serialPortMock);
+            _communicator = new SerialCommunicator(_serialPortMock);
         }
+
+        private SerialCommunicator _communicator;
+
+        private SerialPort _serialPortMock;
 
         [Test]
         public void PortDataReceived()
@@ -32,13 +32,13 @@ namespace ElmCommunicatorTests
             const string expectedMessage = "3C";
             string actualMessage = string.Empty;
 
-            this._serialPortMock.Expect(s => s.ReadExisting())
+            _serialPortMock.Expect(s => s.ReadExisting())
                 .Repeat.Once()
                 .Return(expectedMessage);
 
-            this._communicator.Sender.MessageResponse = new ActivityMonitorCountResponseMessage();
-            this._communicator.Receiver.OnProcessMessage += message => actualMessage = message.Data;
-            this._communicator.PortDataReceived(this._serialPortMock, null);
+            _communicator.Sender.MessageResponse = new ActivityMonitorCountResponseMessage();
+            _communicator.Receiver.OnProcessMessage += message => actualMessage = message.Data;
+            _communicator.PortDataReceived(_serialPortMock, null);
 
             Assert.AreEqual(expectedMessage, actualMessage);
         }
@@ -46,9 +46,8 @@ namespace ElmCommunicatorTests
 
     public class UnauthorizedException : Exception
     {
-        private string _userX;
-
-        private string _locationY;
+        private readonly string _locationY;
+        private readonly string _userX;
 
         public UnauthorizedException(string userX, string locationY)
         {
@@ -58,10 +57,7 @@ namespace ElmCommunicatorTests
 
         public override string Message
         {
-            get
-            {
-                return string.Format("User {0} is not able to access {1}", _userX, _locationY);
-            }
+            get { return string.Format("User {0} is not able to access {1}", _userX, _locationY); }
         }
     }
 }

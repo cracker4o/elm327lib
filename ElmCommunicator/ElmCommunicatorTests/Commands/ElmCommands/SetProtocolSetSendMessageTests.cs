@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ElmCommunicator.Commands.ElmCommands;
+﻿using ElmCommunicator.Commands.ElmCommands;
 using NUnit.Framework;
 
 namespace ElmCommunicatorTests.Commands.ElmCommands
@@ -13,7 +8,6 @@ namespace ElmCommunicatorTests.Commands.ElmCommands
         [SetUp]
         public void SetUp()
         {
-
         }
 
         [Test]

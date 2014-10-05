@@ -6,21 +6,15 @@ using Rhino.Mocks;
 namespace ElmCommunicatorTests
 {
     [TestFixture]
-    class ReceiverTests
+    internal class ReceiverTests
     {
-        private Receiver _receiverMock;
-
         [SetUp]
         public void SetUp()
         {
-            this._receiverMock = MockRepository.GeneratePartialMock<Receiver>();
+            _receiverMock = MockRepository.GeneratePartialMock<Receiver>();
         }
 
-        [Test]
-        public void ProcessMessage()
-        {
-
-        }
+        private Receiver _receiverMock;
 
         [Test]
         public void ParseMessage()
@@ -28,7 +22,12 @@ namespace ElmCommunicatorTests
             string data = "DATA MESSAGE HERE"; //TODO: Set data message
             var message = new ActivityMonitorCountResponseMessage();
 
-            Assert.NotNull(this._receiverMock.Parse(data, message));
+            Assert.NotNull(_receiverMock.Parse(data, message));
+        }
+
+        [Test]
+        public void ProcessMessage()
+        {
         }
     }
 }

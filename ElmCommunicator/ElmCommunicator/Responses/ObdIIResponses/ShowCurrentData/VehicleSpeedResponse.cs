@@ -2,17 +2,15 @@
 
 namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
 {
-    public class CalculatedEngineLoadValueResponse : ResponseMessage
+    public class VehicleSpeedResponse : ResponseMessage
     {
-        public int EngineLoadValue { get; set; }
+        public int Speed { get; set; }
 
         public override IReceiveMessage Parse(string message)
         {
             Command = GetCommand(ref message);
             Data = message.Substring(4);
-            byte[] bytes = StringToByteArray(Data);
-            EngineLoadValue = bytes[0]*100/255;
-
+            Speed = HexToDec(Data);
             return this;
         }
     }

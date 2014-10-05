@@ -1,23 +1,18 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ElmCommunicator.Commands;
+﻿using ElmCommunicator.Commands;
 
 namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
 {
     public class IntakeManifoldPressureResponse : ResponseMessage
     {
+        public int Pressure { get; set; }
+
         public override IReceiveMessage Parse(string message)
         {
-            this.Command = GetCommand(ref message);
-            this.Data = message.Substring(4);
-            this.Pressure = this.HexToDec(this.Data);
+            Command = GetCommand(ref message);
+            Data = message.Substring(4);
+            Pressure = HexToDec(Data);
 
             return this;
         }
-
-        public int Pressure { get; set; }
     }
 }

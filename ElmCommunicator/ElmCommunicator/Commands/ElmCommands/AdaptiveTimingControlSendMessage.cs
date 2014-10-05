@@ -1,10 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Security.Cryptography.X509Certificates;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
@@ -12,7 +7,7 @@ namespace ElmCommunicator.Commands.ElmCommands
     {
         public AdaptiveTimingControlSendMessage(string id)
         {
-            this.Command = "AT AT";
+            Command = "AT AT";
 
             if (string.IsNullOrEmpty(id))
             {
@@ -30,7 +25,7 @@ namespace ElmCommunicator.Commands.ElmCommands
                 throw new ArgumentOutOfRangeException("id", "The id is not between 0 and 2");
             }
 
-            this.Data = id;
+            Data = id;
         }
     }
 }

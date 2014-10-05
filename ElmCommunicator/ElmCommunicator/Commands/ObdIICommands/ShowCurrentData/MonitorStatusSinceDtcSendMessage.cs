@@ -1,17 +1,11 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ElmCommunicator.Commands.ObdIICommands.ShowCurrentData
+﻿namespace ElmCommunicator.Commands.ObdIICommands.ShowCurrentData
 {
     public class MonitorStatusSinceDtcSendMessage : SendMessage
     {
         public MonitorStatusSinceDtcSendMessage()
         {
-            this.Command = "01";
-            this.Data = "01";
+            Command = "01";
+            Data = "01";
         }
     }
 }

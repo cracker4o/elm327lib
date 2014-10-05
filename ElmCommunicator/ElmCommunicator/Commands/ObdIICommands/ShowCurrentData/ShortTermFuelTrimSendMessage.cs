@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace ElmCommunicator.Commands.ObdIICommands.ShowCurrentData
+﻿namespace ElmCommunicator.Commands.ObdIICommands.ShowCurrentData
 {
     public enum FuelBanks
     {
@@ -20,16 +14,16 @@ namespace ElmCommunicator.Commands.ObdIICommands.ShowCurrentData
 
         public ShortTermFuelTrimSendMessage(FuelBanks fuelBank)
         {
-            this.Command = ShowCurrentDataCommand;
+            Command = ShowCurrentDataCommand;
 
             switch (fuelBank)
             {
                 case FuelBanks.FirstFuelBank:
-                    this.Data = FirstFuelBankCommand;
+                    Data = FirstFuelBankCommand;
                     break;
 
                 case FuelBanks.SecondFuelBank:
-                    this.Data = SecondFuelBankCommand;
+                    Data = SecondFuelBankCommand;
                     break;
             }
         }

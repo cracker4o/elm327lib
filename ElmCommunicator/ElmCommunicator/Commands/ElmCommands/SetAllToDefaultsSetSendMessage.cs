@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
@@ -11,13 +7,13 @@ namespace ElmCommunicator.Commands.ElmCommands
     {
         public SetAllToDefaultsSetSendMessage()
         {
-            this.Command = "AT D";
+            Command = "AT D";
         }
 
         public SetAllToDefaultsSetSendMessage(bool dlcDigitState)
             : this()
         {
-            this.Data = Convert.ToInt32(dlcDigitState).ToString(CultureInfo.InvariantCulture);
+            Data = Convert.ToInt32(dlcDigitState).ToString(CultureInfo.InvariantCulture);
         }
     }
 }

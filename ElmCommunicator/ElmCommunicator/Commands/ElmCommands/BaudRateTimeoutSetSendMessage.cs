@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
@@ -21,8 +17,8 @@ namespace ElmCommunicator.Commands.ElmCommands
             if (!int.TryParse(dataValue, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out baudDivisor))
                 throw new ArgumentException("NaN");
 
-            this.Command = "AT BRT";
-            this.Data = dataValue;
+            Command = "AT BRT";
+            Data = dataValue;
         }
     }
 }

@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
@@ -13,11 +9,11 @@ namespace ElmCommunicator.Commands.ElmCommands
             if (string.IsNullOrEmpty(headerValue))
                 throw new ArgumentNullException("headerValue");
 
-            if(headerValue.Length != 3 && headerValue.Length != 8)
+            if (headerValue.Length != 3 && headerValue.Length != 8)
                 throw new ArgumentOutOfRangeException("headerValue");
-            
-            this.Command = "AT FC SH";
-            this.Data = headerValue;
+
+            Command = "AT FC SH";
+            Data = headerValue;
         }
     }
 }

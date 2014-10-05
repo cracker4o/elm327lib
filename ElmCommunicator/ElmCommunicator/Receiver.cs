@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using ElmCommunicator.Commands;
+﻿using ElmCommunicator.Commands;
 
 namespace ElmCommunicator
 {
@@ -18,9 +13,9 @@ namespace ElmCommunicator
 
         public void Process(IReceiveMessage message)
         {
-            if (this.OnProcessMessage != null)
+            if (OnProcessMessage != null)
             {
-                this.OnProcessMessage(message);
+                OnProcessMessage(message);
             }
         }
     }

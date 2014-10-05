@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
@@ -10,14 +6,14 @@ namespace ElmCommunicator.Commands.ElmCommands
     {
         public SetHeaderOoSetSendMessage(string xyz)
         {
-            if(string.IsNullOrEmpty(xyz))
+            if (string.IsNullOrEmpty(xyz))
                 throw new ArgumentNullException("xyz");
-            
-            if(xyz.Length != 3 || xyz.Length != 6 || xyz.Length != 8 || !this.CheckValidHexNumberByte(xyz))
+
+            if (xyz.Length != 3 || xyz.Length != 6 || xyz.Length != 8 || !CheckValidHexNumberByte(xyz))
                 throw new ArgumentOutOfRangeException("xyz");
-            
-            this.Command = "AT SH";
-            this.Data = xyz;
+
+            Command = "AT SH";
+            Data = xyz;
         }
     }
 }

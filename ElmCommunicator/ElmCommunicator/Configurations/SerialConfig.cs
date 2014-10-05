@@ -1,98 +1,57 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Configuration;
-using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Configuration;
 
 namespace ElmCommunicator.Configurations
 {
     /// <summary>
-    /// Serial port settings
+    ///     Serial port settings
     /// </summary>
     public class SerialConfig : ApplicationSettingsBase, ICommunicationConfig
     {
-
-        private static readonly SerialConfig DefaultInstance = ((SerialConfig)(Synchronized(new SerialConfig())));
+        private static readonly SerialConfig DefaultInstance = ((SerialConfig) (Synchronized(new SerialConfig())));
 
         public static SerialConfig Default
         {
-            get
-            {
-                return DefaultInstance;
-            }
+            get { return DefaultInstance; }
         }
 
-        [UserScopedSetting()]
+        [UserScopedSetting]
         [DefaultSettingValue("38400")]
-        public int BaudRate 
+        public int BaudRate
         {
-            get
-            {
-                return (int)this["BaudRate"];
-            }
-            set
-            {
-                this["BaudRate"] = value;
-            }
+            get { return (int) this["BaudRate"]; }
+            set { this["BaudRate"] = value; }
         }
 
-        [UserScopedSetting()]
+        [UserScopedSetting]
         [DefaultSettingValue("8")]
-        public int DataBits 
+        public int DataBits
         {
-            get
-            {
-                return (int)this["DataBits"];
-            }
-            set
-            {
-                this["DataBits"] = value;
-            }
+            get { return (int) this["DataBits"]; }
+            set { this["DataBits"] = value; }
         }
 
-        [UserScopedSetting()]
+        [UserScopedSetting]
         [DefaultSettingValue("1")]
-        public string StopBits 
+        public string StopBits
         {
-            get
-            {
-                return (string)this["StopBits"];
-            }
-            set
-            {
-                this["StopBits"] = value;
-            }
+            get { return (string) this["StopBits"]; }
+            set { this["StopBits"] = value; }
         }
 
-        [UserScopedSetting()]
+        [UserScopedSetting]
         [DefaultSettingValue("None")]
-        public string Parity 
+        public string Parity
         {
-            get
-            {
-                return (string)this["Parity"];
-            }
-            set
-            {
-                this["Parity"] = value;
-            }
+            get { return (string) this["Parity"]; }
+            set { this["Parity"] = value; }
         }
 
-        [UserScopedSetting()]
+        [UserScopedSetting]
         [DefaultSettingValue("COM1")]
-        public string PortName 
+        public string PortName
         {
-            get
-            {
-                return (string)this["PortName"];
-            }
-            set
-            {
-                this["PortName"] = value;
-            }
+            get { return (string) this["PortName"]; }
+            set { this["PortName"] = value; }
         }
     }
 }

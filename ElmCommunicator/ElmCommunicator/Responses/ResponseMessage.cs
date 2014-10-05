@@ -16,7 +16,7 @@ namespace ElmCommunicator.Responses
 
         public int HexToDec(string hex)
         {
-            if(string.IsNullOrEmpty(hex))
+            if (string.IsNullOrEmpty(hex))
                 throw new ArgumentNullException("hex");
 
             return int.Parse(hex, NumberStyles.HexNumber);
@@ -29,8 +29,8 @@ namespace ElmCommunicator.Responses
             while (counter > 0)
             {
                 result <<= 1;
-                result |= (byte)(val & 1);
-                val = (byte)(val >> 1);
+                result |= (byte) (val & 1);
+                val = (byte) (val >> 1);
                 counter--;
             }
 
@@ -42,25 +42,25 @@ namespace ElmCommunicator.Responses
             hex = hex.Replace(" ", string.Empty);
 
             return Enumerable.Range(0, hex.Length)
-                             .Where(x => x % 2 == 0)
-                             .Select(x =>
-                             {
-                                 byte result = Convert.ToByte(hex.Substring(x, 2), 16);
-                                 if (bitSwap)
-                                 {
-                                     result = this.ReverseByte(result);
-                                 }
+                .Where(x => x%2 == 0)
+                .Select(x =>
+                {
+                    byte result = Convert.ToByte(hex.Substring(x, 2), 16);
+                    if (bitSwap)
+                    {
+                        result = ReverseByte(result);
+                    }
 
-                                 return result;
-                             }).ToArray();
+                    return result;
+                }).ToArray();
         }
 
         public byte ConvertBitArrayToByte(BitArray bits, int startIdx = 0, int length = 8)
         {
-            if(length > 8)
+            if (length > 8)
                 throw new ArgumentOutOfRangeException("length");
 
-            if(bits.Length < 8)
+            if (bits.Length < 8)
                 throw new ArgumentOutOfRangeException("bits");
 
             int output = 0;
@@ -74,13 +74,13 @@ namespace ElmCommunicator.Responses
                     continue;
                 }
 
-                if(bits.Get(i))
+                if (bits.Get(i))
                 {
                     output += (1 << (7 - i));
                 }
             }
 
-            return (byte)output;
+            return (byte) output;
         }
 
         public string GetCommand(ref string message)

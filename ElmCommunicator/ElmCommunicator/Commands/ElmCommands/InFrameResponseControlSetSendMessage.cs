@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
@@ -14,18 +9,17 @@ namespace ElmCommunicator.Commands.ElmCommands
             int modeId;
             if (int.TryParse(mode, out modeId))
             {
-                if(modeId < 0 || modeId > 2)
+                if (modeId < 0 || modeId > 2)
                     throw new ArgumentOutOfRangeException("mode");
             }
             else
             {
-                if(!string.Equals(mode, "S") && !string.Equals(mode, "H"))
+                if (!string.Equals(mode, "S") && !string.Equals(mode, "H"))
                     throw new ArgumentOutOfRangeException("mode", "The IFR mode is not valid.");
-
             }
 
-            this.Command = "AT IFR";
-            this.Data = mode;
+            Command = "AT IFR";
+            Data = mode;
         }
     }
 }

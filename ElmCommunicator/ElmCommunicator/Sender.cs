@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using ElmCommunicator.Commands;
 
 namespace ElmCommunicator
@@ -11,6 +7,7 @@ namespace ElmCommunicator
     public class Sender : ISender
     {
         private readonly SerialPort _serialPort;
+
         public Sender(SerialPort serialPort)
         {
             if (serialPort == null)
@@ -18,11 +15,11 @@ namespace ElmCommunicator
                 throw new ArgumentNullException("serialPort");
             }
 
-            this._serialPort = serialPort;
-            
-            if (!this._serialPort.IsOpen)
+            _serialPort = serialPort;
+
+            if (!_serialPort.IsOpen)
             {
-                this._serialPort.Open();
+                _serialPort.Open();
             }
         }
 
@@ -33,10 +30,10 @@ namespace ElmCommunicator
                 throw new ArgumentNullException("message");
             }
 
-            if (this._serialPort.IsOpen)
+            if (_serialPort.IsOpen)
             {
-                this.MessageResponse = message.ResponseMessage;
-                this._serialPort.Write(message.ToString());
+                MessageResponse = message.ResponseMessage;
+                _serialPort.Write(message.ToString());
             }
         }
 

@@ -1,11 +1,11 @@
 ﻿namespace ElmCommunicator.Commands.ObdIICommands.ShowCurrentData
 {
-    public class SupportedPidsSendMessage : SendMessage
+    public class VehicleSpeedSendMessage : SendMessage
     {
-        public SupportedPidsSendMessage()
+        public VehicleSpeedSendMessage()
         {
             Command = "01";
-            Data = "00";
+            Data = "0D";
         }
     }
 }

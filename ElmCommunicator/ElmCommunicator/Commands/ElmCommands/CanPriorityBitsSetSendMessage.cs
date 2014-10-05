@@ -1,9 +1,5 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Globalization;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
@@ -21,8 +17,8 @@ namespace ElmCommunicator.Commands.ElmCommands
             if (!int.TryParse(priorityBits, NumberStyles.HexNumber, CultureInfo.InvariantCulture, out hexBits))
                 throw new ArgumentException("NaN");
 
-            this.Command = "AT CP";
-            this.Data = priorityBits;
+            Command = "AT CP";
+            Data = priorityBits;
         }
     }
 }

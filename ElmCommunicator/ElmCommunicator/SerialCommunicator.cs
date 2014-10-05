@@ -1,35 +1,20 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Configuration;
 using System.IO.Ports;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+using ElmCommunicator.Commands;
 using ElmCommunicator.Configurations;
 
 namespace ElmCommunicator
 {
     public class SerialCommunicator : IDisposable
     {
-        private SerialPort _port;
         private readonly SerialConfig _config;
-        private ISender _sender;
         private readonly IReceiver _receiver;
-
-        internal virtual void PortDataReceived(object sender, SerialDataReceivedEventArgs e)
-        {
-            var port = (SerialPort)sender;
-            var message = this._receiver.Parse(port.ReadExisting(), this._sender.MessageResponse);
-
-            if (message != null)
-            {
-                this._receiver.Process(message);
-            }
-        }
+        private SerialPort _port;
+        private ISender _sender;
 
         public SerialCommunicator(SerialPort port = null)
         {
-            this._config = SerialConfig.Default;
+            _config = SerialConfig.Default;
 
             if (port == null)
             {
@@ -37,54 +22,59 @@ namespace ElmCommunicator
             }
             else
             {
-                this._port = port;
+                _port = port;
             }
 
-            this._port.DataReceived += PortDataReceived;
-            this._receiver = new Receiver();
-            this._sender = new Sender(this._port);
+            _port.DataReceived += PortDataReceived;
+            _receiver = new Receiver();
+            _sender = new Sender(_port);
+        }
+
+        public ISender Sender
+        {
+            get { return _sender; }
+            set { _sender = value; }
+        }
+
+        public IReceiver Receiver
+        {
+            get { return _receiver; }
+        }
+
+        public void Dispose()
+        {
+            if (_port.IsOpen)
+                _port.Close();
+
+            _port.Dispose();
+        }
+
+        internal virtual void PortDataReceived(object sender, SerialDataReceivedEventArgs e)
+        {
+            var port = (SerialPort) sender;
+            IReceiveMessage message = _receiver.Parse(port.ReadExisting(), _sender.MessageResponse);
+
+            if (message != null)
+            {
+                _receiver.Process(message);
+            }
         }
 
         private void InitSerialPort()
         {
             StopBits stopBits;
-            Enum.TryParse(this._config.StopBits, out stopBits);
+            Enum.TryParse(_config.StopBits, out stopBits);
             Parity parity;
-            Enum.TryParse(this._config.Parity, out parity);
+            Enum.TryParse(_config.Parity, out parity);
 
-            this._port = new SerialPort
+            _port = new SerialPort
             {
-                BaudRate = this._config.BaudRate,
-                DataBits = this._config.DataBits,
-                PortName = this._config.PortName,
+                BaudRate = _config.BaudRate,
+                DataBits = _config.DataBits,
+                PortName = _config.PortName,
                 StopBits = stopBits,
                 Parity = parity
             };
-        }
-
-        public ISender Sender 
-        {
-            get
-            {
-                return this._sender;
-            }
-            set
-            {
-                this._sender = value;
-            }
-        }
-
-        public IReceiver Receiver
-        {
-            get { return this._receiver; }
-        }
-
-        public void Dispose()
-        {
-            if(this._port.IsOpen)
-                this._port.Close();
-
-            this._port.Dispose();
         }
     }
 }

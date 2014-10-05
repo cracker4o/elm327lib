@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
@@ -10,11 +6,11 @@ namespace ElmCommunicator.Commands.ElmCommands
     {
         public IsoInitAddressSetSendMessage(string address)
         {
-            if (!this.CheckValidHexNumberByte(address))
+            if (!CheckValidHexNumberByte(address))
                 throw new ArgumentException("Invalid argument - address");
 
-            this.Command ="AT IIA";
-            this.Data = address;
+            Command = "AT IIA";
+            Data = address;
         }
     }
 }
