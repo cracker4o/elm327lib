@@ -2,6 +2,7 @@
 using ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData;
 using NUnit.Framework;
 using Rhino.Mocks;
+using Units;
 
 namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
 {
@@ -28,11 +29,11 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldReadTheSpeed()
         {
-            int expectedSpeed = 85;
+            double expectedSpeed = 85;
             string message = "41 01 55";
             var result = _response.Parse(message) as VehicleSpeedResponse;
             Assert.IsNotNull(result);
-            Assert.AreEqual(expectedSpeed, result.Speed);
+            Assert.AreEqual(expectedSpeed, result.Speed.ConvertTo(Velocity.KilometrePerHour));
         }
     }
 }

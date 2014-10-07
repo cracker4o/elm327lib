@@ -21,7 +21,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
             const string message = "41 01 55";
             Pressure expectedPressure = 255*Pressure.Kilopascal;
             _response.Parse(message);
-            Assert.AreEqual(expectedPressure, _response.Pressure);
+            Assert.AreEqual(expectedPressure.ConvertTo(Pressure.Kilopascal), _response.Pressure.ConvertTo(Pressure.Kilopascal));
         }
 
         [Test]
