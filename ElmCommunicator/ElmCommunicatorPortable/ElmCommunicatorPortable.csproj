@@ -1,0 +1,200 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <MinimumVisualStudioVersion>12.0</MinimumVisualStudioVersion>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C935F9A0-36EA-4A59-887A-A18A0312FECE}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>ElmCommunicatorPortable</RootNamespace>
+    <AssemblyName>ElmCommunicatorPortable</AssemblyName>
+    <DefaultLanguage>en-US</DefaultLanguage>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{786C830F-07A1-408B-BD7F-6EE04809D6DB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <TargetFrameworkProfile>Profile151</TargetFrameworkProfile>
+    <TargetFrameworkVersion>v4.6</TargetFrameworkVersion>
+    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
+    <RestorePackages>true</RestorePackages>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <!-- A reference to the entire .NET Framework is automatically included -->
+    <Folder Include="Commands\ObdIICommands\ClearDiagnosticCodes\" />
+    <Folder Include="Commands\ObdIICommands\ControlObdOperation\" />
+    <Folder Include="Commands\ObdIICommands\OtherSystemMonitoring\" />
+    <Folder Include="Commands\ObdIICommands\OxygenSensorMonitoring\" />
+    <Folder Include="Commands\ObdIICommands\PermanentDtc\" />
+    <Folder Include="Commands\ObdIICommands\RequestVehicleInformation\" />
+    <Folder Include="Commands\ObdIICommands\ShowFreezeFrameData\" />
+    <Folder Include="Commands\ObdIICommands\ShowLastDrivingCodes\" />
+    <Folder Include="Commands\ObdIICommands\ShowTroubleCodes\" />
+    <Folder Include="Responses\ObdIIResponses\ClearDiagnosticCodes\" />
+    <Folder Include="Responses\ObdIIResponses\ControlObdOperation\" />
+    <Folder Include="Responses\ObdIIResponses\OtherSystemMonitoring\" />
+    <Folder Include="Responses\ObdIIResponses\OxygenSensorMonitoring\" />
+    <Folder Include="Responses\ObdIIResponses\PermanentDtc\" />
+    <Folder Include="Responses\ObdIIResponses\RequestVehicleInformation\" />
+    <Folder Include="Responses\ObdIIResponses\ShowFreezeFrameData\" />
+    <Folder Include="Responses\ObdIIResponses\ShowLastDrivingCodes\" />
+    <Folder Include="Responses\ObdIIResponses\ShowTroubleCodes\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\ElmCommands\ActivityMonitorCountSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\ActivityMonitorTimeoutSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\AdaptiveTimingControlSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\AllowLongSendMessages.cs" />
+    <Compile Include="Commands\ElmCommands\AutoReceiveSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\BaudRateDivisorSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\BaudRateDivisorSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\BaudRateTimeoutSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\BypassInitializationSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\CalibrateVoltageSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\CanAutoformattingSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\CanExtendedAddressSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\CanExtendedMessageSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\CanFlowControlSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\CanIdFilterSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\CanIdMaskSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\CanPriorityBitsSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\CanRxAddressSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\CanRxAddressSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\CanSilentMonitoringSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\CanStatusCountsSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\CanTimerMultiplierSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\DescribeCurrentProtocolSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\EchoCommandsSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\EnableJ1939ElmDataFormatSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\EnableJ1939SaeDataFormatSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\FastInitiationSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\FlowControlSetDataToSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\FlowControlSetHeaderToSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\FlowControlSetModeSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\ForgetEventsSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\GetIgnMonInputLevelSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\HeadersOnOffSetSendMEssage.cs" />
+    <Compile Include="Commands\ElmCommands\IdentifyYourselfSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\InFrameResponseControlSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\IsoInitAddressSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\J1939HeaderFormattingSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\J1939TimerMultiplierSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\KeyWordsManageSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\LinefeedsOnOffSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\LowPowerModeEnableSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\MemoryOnOffSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\MonitorAllMessagesSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\MonitorDm1SendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\MonitorForPGNSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\MonitorForTransmitterSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\MonitorReceiverAddressSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\NormalLengthMessagesSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\PerformSlowInitiationSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\PrintSpacesOnOffSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\ProgParamSetValueSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\ProgrammableParameterSummarySendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\ProgramParameterSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\ProtocolCloseSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\ReadDataInUserMemorySendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\ReadInputVoltageSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\ReceiveAddressSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\ResetAllSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\ResponsesSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SaveDataByteSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SendRtrMessageSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SetAllToDefaultsSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SetHeaderOOSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SetIsoBaudRateSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SetProtocolBParametersSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SetProtocolSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SetProtocolToAutoSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SetReceiveAddressToSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SetTimeoutSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SetWakeUpMessageToSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\SetWakeUpSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\StandardSequenceForSerchesSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\TesterAddressSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\TryProtocolSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\TryProtocolToAutoSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\VariableDataLengthsSetSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\WarmStartSendMessage.cs" />
+    <Compile Include="Commands\ICommunicationMessage.cs" />
+    <Compile Include="Commands\IReceiveMessage.cs" />
+    <Compile Include="Commands\ISendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\CalculatedEngineLoadValueSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\EngineCoolantTempSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\EngineRpmSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\FreezeDtcSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\FuelPressureSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\FuelSystemStatusSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\IntakeManifoldPressureSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\LongTermFuelTrimSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\MonitorStatusSinceDtcSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\ShortTermFuelTrimSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\SupportedPidsSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\VehicleSpeedSendMessage.cs" />
+    <Compile Include="Commands\SendMessage.cs" />
+    <Compile Include="Configurations\ICommunicationConfig.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Responses\ElmResponses\ActivityMonitorCountResponseMessage.cs" />
+    <Compile Include="Responses\ElmResponses\ActivityMonitorTimeoutResponseMessage.cs" />
+    <Compile Include="Responses\ElmResponses\AdaptiveTimingControlResponseMessage.cs" />
+    <Compile Include="Responses\ElmResponses\AllowLongResponseMessages.cs" />
+    <Compile Include="Responses\ElmResponses\AutoReceiveResponseMessage.cs" />
+    <Compile Include="Responses\ElmResponses\BaudRateDivisorResponseMessage.cs" />
+    <Compile Include="Responses\ElmResponses\EchoCommandsResponseMessage.cs" />
+    <Compile Include="Responses\ElmResponses\SetProtocolResponseMessage.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\CalculatedEngineLoadValueResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\EngineCoolantTemperatureResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\EngineRpmResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FreezeDtcResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelPressureResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelSystemStatusResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelTrimResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\IntakeManifoldPressureResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\MonitorStatusSinceDtcClearedResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\ShortTermFuelTrimResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\SupportedPidsResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\VehicleSpeedResponse.cs" />
+    <Compile Include="Responses\ResponseMessage.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnitsNet">
+      <HintPath>..\packages\UnitsNet.3.3.0\lib\portable-net45+wp80+win8+wpa81\UnitsNet.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="packages.config" />
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath32)\Microsoft\Portable\$(TargetFrameworkVersion)\Microsoft.Portable.CSharp.targets" />
+  <Import Project="$(SolutionDir)\.nuget\NuGet.targets" Condition="Exists('$(SolutionDir)\.nuget\NuGet.targets')" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Enable NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('$(SolutionDir)\.nuget\NuGet.targets')" Text="$([System.String]::Format('$(ErrorText)', '$(SolutionDir)\.nuget\NuGet.targets'))" />
+  </Target>
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

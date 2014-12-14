@@ -44,8 +44,8 @@
       <HintPath>..\packages\RhinoMocks.3.6.1\lib\net\Rhino.Mocks.dll</HintPath>
     </Reference>
     <Reference Include="System" />
-    <Reference Include="Units">
-      <HintPath>..\packages\Units.2014.1.17.1\lib\portable-net4+sl4+wp71+win8\Units.dll</HintPath>
+    <Reference Include="UnitsNet">
+      <HintPath>..\packages\UnitsNet.3.3.0\lib\net35\UnitsNet.dll</HintPath>
     </Reference>
   </ItemGroup>
   <Choose>

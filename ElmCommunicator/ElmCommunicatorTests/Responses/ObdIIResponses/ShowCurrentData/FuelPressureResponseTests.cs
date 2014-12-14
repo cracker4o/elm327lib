@@ -1,6 +1,6 @@
 ﻿using ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData;
 using NUnit.Framework;
-using Units;
+using UnitsNet;
 
 namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
 {
@@ -19,9 +19,9 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         public void ShouldParseTheResponse()
         {
             const string message = "41 01 55";
-            Pressure expectedPressure = 255*Pressure.Kilopascal;
+            Pressure expectedPressure = Pressure.FromKilopascals(255);
             _response.Parse(message);
-            Assert.AreEqual(expectedPressure.ConvertTo(Pressure.Kilopascal), _response.Pressure.ConvertTo(Pressure.Kilopascal));
+            Assert.AreEqual(expectedPressure.Kilopascals, _response.Pressure.Kilopascals);
         }
 
         [Test]

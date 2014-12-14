@@ -2,7 +2,7 @@
 using ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData;
 using NUnit.Framework;
 using Rhino.Mocks;
-using Units;
+using UnitsNet;
 
 namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
 {
@@ -34,7 +34,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
             const float expectedTemperature = 20;
             _response.Parse(Message);
             Assert.AreEqual(expectedCommand, _response.Command);
-            Assert.AreEqual(expectedTemperature, _response.Temperature.ConvertTo(Temperature.DegreeCelsius));
+            Assert.AreEqual(expectedTemperature, _response.Temperature.DegreesCelsius);
         }
     }
 }
