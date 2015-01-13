@@ -127,9 +127,11 @@
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\FuelSystemStatusSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\IntakeManifoldPressureSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\LongTermFuelTrimSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\MafAirflowSensorSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\MonitorStatusSinceDtcSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\ShortTermFuelTrimSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\SupportedPidsSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\ThrottlePositionSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\VehicleSpeedSendMessage.cs" />
     <Compile Include="Commands\SendMessage.cs" />
     <Compile Include="Configurations\SerialConfig.cs" />
@@ -154,9 +156,11 @@
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelSystemStatusResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelTrimResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\IntakeManifoldPressureResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\MafAirflowSensorResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\MonitorStatusSinceDtcClearedResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\ShortTermFuelTrimResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\SupportedPidsResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\ThrottlePositionResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\VehicleSpeedResponse.cs" />
     <Compile Include="Responses\ResponseMessage.cs" />
     <Compile Include="Sender.cs" />

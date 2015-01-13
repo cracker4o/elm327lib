@@ -151,6 +151,8 @@
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\VehicleSpeedSendMessage.cs" />
     <Compile Include="Commands\SendMessage.cs" />
     <Compile Include="Configurations\ICommunicationConfig.cs" />
+    <Compile Include="IReceiver.cs" />
+    <Compile Include="ISender.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Responses\ElmResponses\ActivityMonitorCountResponseMessage.cs" />
     <Compile Include="Responses\ElmResponses\ActivityMonitorTimeoutResponseMessage.cs" />
