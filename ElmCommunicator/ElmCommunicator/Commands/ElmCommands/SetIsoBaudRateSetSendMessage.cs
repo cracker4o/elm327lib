@@ -14,7 +14,7 @@ namespace ElmCommunicator.Commands.ElmCommands
         public SetIsoBaudRateSetSendMessage(IsoBaudRateOptions option)
         {
             Command = "AT IB";
-            Data = ((int) option).ToString(CultureInfo.InvariantCulture);
+            Data = ((int)option).ToString(CultureInfo.InvariantCulture);
         }
     }
 }
