@@ -75,6 +75,7 @@
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\IntakeManifoldPressureResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\MonitorStatusSinceDtcClearedResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\SupportedPidsResponseTests.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\TimingAdvanceResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\VehicleSpeedResponseTests.cs" />
     <Compile Include="Responses\ResponseMessageTests.cs" />
     <Compile Include="SenderTests.cs" />

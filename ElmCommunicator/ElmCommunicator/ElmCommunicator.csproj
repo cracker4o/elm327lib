@@ -131,6 +131,7 @@
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\MonitorStatusSinceDtcSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\ShortTermFuelTrimSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\SupportedPidsSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\TimingAdvanceSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\VehicleSpeedSendMessage.cs" />
     <Compile Include="Commands\SendMessage.cs" />
     <Compile Include="Configurations\SerialConfig.cs" />
@@ -159,6 +160,7 @@
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\MonitorStatusSinceDtcClearedResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\ShortTermFuelTrimResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\SupportedPidsResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\TimingAdvanceResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\VehicleSpeedResponse.cs" />
     <Compile Include="Responses\ResponseMessage.cs" />
     <Compile Include="Sender.cs" />
