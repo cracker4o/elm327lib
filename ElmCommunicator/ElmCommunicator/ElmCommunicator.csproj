@@ -119,6 +119,7 @@
     <Compile Include="Commands\ICommunicationMessage.cs" />
     <Compile Include="Commands\IReceiveMessage.cs" />
     <Compile Include="Commands\ISendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\BarometricPressureSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\CalculatedEngineLoadValueSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\CommandedSecondaryAirStatusSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\EngineCoolantTempSendMessage.cs" />
@@ -150,6 +151,7 @@
     <Compile Include="Responses\ElmResponses\BaudRateDivisorResponseMessage.cs" />
     <Compile Include="Responses\ElmResponses\EchoCommandsResponseMessage.cs" />
     <Compile Include="Responses\ElmResponses\SetProtocolResponseMessage.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\BarometricPressureResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\CalculatedEngineLoadValueResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\CommandedSecondaryAirStatusResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\EngineCoolantTemperatureResponse.cs" />
