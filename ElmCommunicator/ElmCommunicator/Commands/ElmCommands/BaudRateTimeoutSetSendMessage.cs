@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using ElmCommunicator.Responses.ElmResponses;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
@@ -7,6 +8,7 @@ namespace ElmCommunicator.Commands.ElmCommands
     {
         public BaudRateTimeoutSetSendMessage(string dataValue)
         {
+            this.ResponseMessage = new CommonElmResponseMessage();
             if (string.IsNullOrEmpty(dataValue))
                 throw new ArgumentNullException("dataValue", "The baudrate dataValue is empty.");
 

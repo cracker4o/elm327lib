@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Globalization;
+using ElmCommunicator.Responses.ElmResponses;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
@@ -7,6 +8,7 @@ namespace ElmCommunicator.Commands.ElmCommands
     {
         public AdaptiveTimingControlSendMessage(string id)
         {
+            this.ResponseMessage = new AdaptiveTimingControlResponseMessage();
             Command = "AT AT";
 
             if (string.IsNullOrEmpty(id))

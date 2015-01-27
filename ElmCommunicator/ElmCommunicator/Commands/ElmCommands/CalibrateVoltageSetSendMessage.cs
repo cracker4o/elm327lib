@@ -1,4 +1,5 @@
 ﻿using System;
+using ElmCommunicator.Responses.ElmResponses;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
@@ -10,6 +11,7 @@ namespace ElmCommunicator.Commands.ElmCommands
         /// <param name="voltage"></param>
         public CalibrateVoltageSetSendMessage(string voltage)
         {
+            this.ResponseMessage = new CommonElmResponseMessage();
             if (string.IsNullOrEmpty(voltage))
                 throw new ArgumentNullException("voltage", "Please provide voltage for this command.");
 

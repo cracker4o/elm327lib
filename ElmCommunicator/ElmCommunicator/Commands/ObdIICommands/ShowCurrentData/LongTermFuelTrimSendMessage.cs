@@ -1,4 +1,6 @@
-﻿namespace ElmCommunicator.Commands.ObdIICommands.ShowCurrentData
+﻿using ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData;
+
+namespace ElmCommunicator.Commands.ObdIICommands.ShowCurrentData
 {
     public class LongTermFuelTrimSendMessage : SendMessage
     {
@@ -8,6 +10,7 @@
 
         public LongTermFuelTrimSendMessage(FuelBanks fuelBank)
         {
+            this.ResponseMessage = new FuelTrimResponse();
             Command = "01";
 
             switch (fuelBank)

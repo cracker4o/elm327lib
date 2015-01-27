@@ -1,4 +1,5 @@
 ﻿using System;
+using ElmCommunicator.Responses.ElmResponses;
 
 namespace ElmCommunicator.Commands.ElmCommands
 {
@@ -6,6 +7,7 @@ namespace ElmCommunicator.Commands.ElmCommands
     {
         public BaudRateDivisorSendMessage()
         {
+            this.ResponseMessage = new BaudRateDivisorResponseMessage();
             Command = "AT BRD";
         }
 

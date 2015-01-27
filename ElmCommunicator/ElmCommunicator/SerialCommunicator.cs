@@ -1,5 +1,6 @@
 ﻿using System;
 using System.IO.Ports;
+using System.Linq;
 using ElmCommunicator.Commands;
 using ElmCommunicator.Configurations;
 
@@ -52,7 +53,20 @@ namespace ElmCommunicator
         internal virtual void PortDataReceived(object sender, SerialDataReceivedEventArgs e)
         {
             var port = (SerialPort) sender;
-            IReceiveMessage message = _receiver.Parse(port.ReadExisting(), _sender.MessageResponse);
+            string received = port.ReadExisting();
+            received = received.Replace("\r\n\r\n", "|");
+            string[] dataStrings = received.Split('|');
+            IReceiveMessage message;
+
+            if(dataStrings.Count() > 1)
+            {
+                message = _receiver.Parse(dataStrings[1].Replace("\r\n>", string.Empty), _sender.MessageResponse);
+            }
+            else
+            {
+                message = _receiver.Parse(received.Replace("\r\n", string.Empty).Replace(">", string.Empty),
+                    _sender.MessageResponse);
+            }
 
             if (message != null)
             {

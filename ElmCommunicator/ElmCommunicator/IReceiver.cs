@@ -6,7 +6,7 @@ namespace ElmCommunicator
     ///     A delegate for message processing.
     /// </summary>
     /// <param name="message"></param>
-    public delegate void ProcessMessage(ICommunicationMessage message);
+    public delegate void ProcessMessage(IReceiveMessage message);
 
     public interface IReceiver
     {

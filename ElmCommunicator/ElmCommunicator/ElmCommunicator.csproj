@@ -149,6 +149,7 @@
     <Compile Include="Responses\ElmResponses\AllowLongResponseMessages.cs" />
     <Compile Include="Responses\ElmResponses\AutoReceiveResponseMessage.cs" />
     <Compile Include="Responses\ElmResponses\BaudRateDivisorResponseMessage.cs" />
+    <Compile Include="Responses\ElmResponses\CommonElmResponseMessage.cs" />
     <Compile Include="Responses\ElmResponses\EchoCommandsResponseMessage.cs" />
     <Compile Include="Responses\ElmResponses\SetProtocolResponseMessage.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\BarometricPressureResponse.cs" />
