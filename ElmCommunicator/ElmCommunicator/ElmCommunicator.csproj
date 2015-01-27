@@ -127,10 +127,12 @@
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\FreezeDtcSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\FuelPressureSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\FuelSystemStatusSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\IntakeAirTemperatureSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\IntakeManifoldPressureSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\LongTermFuelTrimSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\MafAirflowSensorSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\MonitorStatusSinceDtcSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\RuntimeSinceEngineStartSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\ShortTermFuelTrimSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\SupportedPidsSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\ThrottlePositionSendMessage.cs" />
@@ -160,9 +162,11 @@
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelPressureResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelSystemStatusResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelTrimResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\IntakeAirTemperatureResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\IntakeManifoldPressureResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\MafAirflowSensorResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\MonitorStatusSinceDtcClearedResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\RuntimeSinceEngineStartResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\ShortTermFuelTrimResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\SupportedPidsResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\ThrottlePositionResponse.cs" />

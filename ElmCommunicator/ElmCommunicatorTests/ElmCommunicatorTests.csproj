@@ -73,9 +73,11 @@
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelPressureResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelSystemStatusResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelTrimResponseTests.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\IntakeAirTemperatureResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\IntakeManifoldPressureResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\MafAirflowSensorResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\MonitorStatusSinceDtcClearedResponseTests.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\RuntimeSinceEngineStartResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\SupportedPidsResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\ThrottlePositionResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\TimingAdvanceResponseTests.cs" />

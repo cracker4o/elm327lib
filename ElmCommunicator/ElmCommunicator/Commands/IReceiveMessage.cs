@@ -1,4 +1,6 @@
-﻿namespace ElmCommunicator.Commands
+﻿using UnitsNet;
+
+namespace ElmCommunicator.Commands
 {
     public interface IReceiveMessage : ICommunicationMessage
     {
