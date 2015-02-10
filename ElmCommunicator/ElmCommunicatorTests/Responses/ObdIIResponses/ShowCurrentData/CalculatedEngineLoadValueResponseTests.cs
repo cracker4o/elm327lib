@@ -29,9 +29,9 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             const string message = "41 00 0F";
             const int expectedEngineLoad = 15*100/255;
-            var result = (CalculatedEngineLoadValueResponse) _response.Parse(message);
+            var result = _response.Parse(message);
 
-            Assert.AreEqual(expectedEngineLoad, result.EngineLoadValue);
+            Assert.AreEqual(expectedEngineLoad, result.As<CalculatedEngineLoadValueResponse>().EngineLoadValue);
         }
     }
 }

@@ -18,6 +18,11 @@ namespace ElmCommunicator.Responses
 
         public abstract IReceiveMessage Parse(string message);
 
+        public T As<T>() where T : class
+        {
+            return this as T;
+        }
+
         public int HexToDec(string hex)
         {
             if (string.IsNullOrEmpty(hex))
@@ -46,7 +51,7 @@ namespace ElmCommunicator.Responses
             hex = hex.Replace(" ", string.Empty);
 
             return Enumerable.Range(0, hex.Length)
-                .Where(x => x%2 == 0)
+                .Where(x => x % 2 == 0)
                 .Select(x =>
                 {
                     byte result = Convert.ToByte(hex.Substring(x, 2), 16);

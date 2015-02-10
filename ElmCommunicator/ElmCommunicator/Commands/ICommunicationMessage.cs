@@ -6,6 +6,7 @@
     public interface ICommunicationMessage
     {
         string Command { get; set; }
+
         string Data { get; set; }
 
         string StartTermination { get; set; }

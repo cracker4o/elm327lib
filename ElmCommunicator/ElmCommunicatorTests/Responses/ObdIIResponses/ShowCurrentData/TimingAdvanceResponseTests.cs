@@ -45,7 +45,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
             string message = "41 0E 45";
             float expectedTimingAdvance = (0x45 - 128f) / 2;
             var result = _timingAdvanceResponse.Parse(message);
-            Assert.AreEqual(expectedTimingAdvance, ((TimingAdvanceResponse)result).TimingAdvance);
+            Assert.AreEqual(expectedTimingAdvance, result.As<TimingAdvanceResponse>().TimingAdvance);
         }
     }
 }

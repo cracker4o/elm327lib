@@ -44,7 +44,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             string message = "41 12 04";
             var response = _secondaryAirStatusResponse.Parse(message);
-            Assert.AreNotEqual(AirStatusOptions.Default, ((CommandedSecondaryAirStatusResponse)response).AirStatusResponse);
+            Assert.AreNotEqual(AirStatusOptions.Default, response.As<CommandedSecondaryAirStatusResponse>().AirStatusResponse);
         }
 
         [Test]
@@ -52,7 +52,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             string message = "41 12 01";
             var response = _secondaryAirStatusResponse.Parse(message);
-            Assert.AreEqual(AirStatusOptions.Upstream, ((CommandedSecondaryAirStatusResponse)response).AirStatusResponse);
+            Assert.AreEqual(AirStatusOptions.Upstream, response.As<CommandedSecondaryAirStatusResponse>().AirStatusResponse);
         }
 
         [Test]
@@ -60,7 +60,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             string message = "41 12 02";
             var response = _secondaryAirStatusResponse.Parse(message);
-            Assert.AreEqual(AirStatusOptions.Downstream, ((CommandedSecondaryAirStatusResponse)response).AirStatusResponse);
+            Assert.AreEqual(AirStatusOptions.Downstream, response.As<CommandedSecondaryAirStatusResponse>().AirStatusResponse);
         }
 
         [Test]
@@ -68,7 +68,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             string message = "41 12 04";
             var response = _secondaryAirStatusResponse.Parse(message);
-            Assert.AreEqual(AirStatusOptions.OutsideAtm, ((CommandedSecondaryAirStatusResponse)response).AirStatusResponse);
+            Assert.AreEqual(AirStatusOptions.OutsideAtm, response.As<CommandedSecondaryAirStatusResponse>().AirStatusResponse);
         }
 
         [Test]
@@ -76,7 +76,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             string message = "41 12 08";
             var response = _secondaryAirStatusResponse.Parse(message);
-            Assert.AreEqual(AirStatusOptions.PumpCommanded, ((CommandedSecondaryAirStatusResponse)response).AirStatusResponse);
+            Assert.AreEqual(AirStatusOptions.PumpCommanded, response.As<CommandedSecondaryAirStatusResponse>().AirStatusResponse);
         }
 
         [Test]
@@ -84,7 +84,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             string message = "41 12 44";
             var response = _secondaryAirStatusResponse.Parse(message);
-            Assert.AreEqual(AirStatusOptions.Default, ((CommandedSecondaryAirStatusResponse)response).AirStatusResponse);
+            Assert.AreEqual(AirStatusOptions.Default, response.As<CommandedSecondaryAirStatusResponse>().AirStatusResponse);
         }
     }
 }

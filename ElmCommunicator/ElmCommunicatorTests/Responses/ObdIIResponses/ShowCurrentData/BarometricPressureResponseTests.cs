@@ -25,8 +25,8 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             string message = "41 33 10";
             Pressure expectedPressure = Pressure.FromKilopascals(0x10);
-            var result = (BarometricPressureResponse)_response.Parse(message);
-            Assert.AreEqual(expectedPressure, result.Pressure);
+            var result = _response.Parse(message);
+            Assert.AreEqual(expectedPressure, result.As<BarometricPressureResponse>().Pressure);
         }
     }
 }

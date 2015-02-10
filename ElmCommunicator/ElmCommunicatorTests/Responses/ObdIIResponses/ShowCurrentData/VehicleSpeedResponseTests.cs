@@ -31,9 +31,9 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         {
             double expectedSpeed = 85;
             string message = "41 01 55";
-            var result = _response.Parse(message) as VehicleSpeedResponse;
+            var result = _response.Parse(message);
             Assert.IsNotNull(result);
-            Assert.AreEqual(expectedSpeed, result.Speed.KilometersPerHour);
+            Assert.AreEqual(expectedSpeed, result.As<VehicleSpeedResponse>().Speed.KilometersPerHour);
         }
     }
 }

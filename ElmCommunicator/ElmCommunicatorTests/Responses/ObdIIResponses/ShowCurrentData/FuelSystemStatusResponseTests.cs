@@ -18,17 +18,17 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         public void ShouldGetTheTwoBytesFromTheMessage()
         {
             const string message = "41 00 02 04";
-            var result = (FuelSystemStatusResponse) _response.Parse(message);
+            var result = _response.Parse(message);
 
-            Assert.AreEqual(FuelSystemStatus.ClosedLoopOxySensor, result.FuelSystemOne);
-            Assert.AreEqual(FuelSystemStatus.OpenLoopEngineLoad, result.FuelSystemTwo);
+            Assert.AreEqual(FuelSystemStatus.ClosedLoopOxySensor, result.As<FuelSystemStatusResponse>().FuelSystemOne);
+            Assert.AreEqual(FuelSystemStatus.OpenLoopEngineLoad, result.As<FuelSystemStatusResponse>().FuelSystemTwo);
         }
 
         [Test]
         public void ShouldReturnAResult()
         {
             const string message = "41 00 02 04";
-            var result = _response.Parse(message) as FuelSystemStatusResponse;
+            var result = _response.Parse(message).As<FuelSystemStatusResponse>();
 
             Assert.IsNotNull(result);
         }
