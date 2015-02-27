@@ -1,4 +1,4 @@
-﻿namespace ElmCommunicator.Commands
+﻿namespace ElmCommunicatorPortable.Commands
 {
     public interface ISendMessage : ICommunicationMessage
     {

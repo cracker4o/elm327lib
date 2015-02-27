@@ -1,5 +1,6 @@
 ﻿using ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData;
 using NUnit.Framework;
+using UnitsNet;
 
 namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
 {
@@ -18,8 +19,8 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         public void ShouldCalculateTheRpmFromTheResponse()
         {
             string data = "5554";
-            double expectedRpm = 5461;
-            double actualRpm = _response.CalculateRpm(data);
+            RotationalSpeed expectedRpm = RotationalSpeed.FromRevolutionsPerMinute(5461);
+            RotationalSpeed actualRpm = _response.CalculateRpm(data);
             Assert.AreEqual(expectedRpm, actualRpm);
         }
 
@@ -36,7 +37,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         public void ShouldGetTheRpm()
         {
             string message = "41 01 55 54";
-            double expectedData = 5461;
+            RotationalSpeed expectedData = RotationalSpeed.FromRevolutionsPerMinute(5461);
             _response.Parse(message);
             Assert.AreEqual(expectedData, _response.Rpm);
         }

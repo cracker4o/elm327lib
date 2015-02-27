@@ -1,4 +1,4 @@
-﻿namespace ElmCommunicator.Configurations
+﻿namespace ElmCommunicatorPortable.Configurations
 {
     public interface ICommunicationConfig
     {

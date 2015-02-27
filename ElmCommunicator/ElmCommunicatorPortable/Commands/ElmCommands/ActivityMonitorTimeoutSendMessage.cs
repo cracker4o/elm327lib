@@ -1,6 +1,7 @@
 ﻿using System;
+using ElmCommunicatorPortable.Responses.ElmResponses;
 
-namespace ElmCommunicator.Commands.ElmCommands
+namespace ElmCommunicatorPortable.Commands.ElmCommands
 {
     public class ActivityMonitorTimeoutSendMessage : SendMessage
     {
@@ -11,6 +12,7 @@ namespace ElmCommunicator.Commands.ElmCommands
 
         public ActivityMonitorTimeoutSendMessage(string data)
         {
+            this.ResponseMessage = new ActivityMonitorTimeoutResponseMessage();
             if (string.IsNullOrEmpty(data))
             {
                 throw new ArgumentNullException("data", "The data is empty");

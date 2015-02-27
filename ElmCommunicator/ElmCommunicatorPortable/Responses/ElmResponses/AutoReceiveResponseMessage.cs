@@ -1,7 +1,7 @@
 ﻿using System;
-using ElmCommunicator.Commands;
+using ElmCommunicatorPortable.Commands;
 
-namespace ElmCommunicator.Responses.ElmResponses
+namespace ElmCommunicatorPortable.Responses.ElmResponses
 {
     public class AutoReceiveResponseMessage : ResponseMessage
     {

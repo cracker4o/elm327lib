@@ -1,6 +1,6 @@
-﻿using ElmCommunicator.Commands;
+﻿using ElmCommunicatorPortable.Commands;
 
-namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
+namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
 {
     public class IntakeManifoldPressureResponse : ResponseMessage
     {

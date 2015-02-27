@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Globalization;
+using ElmCommunicatorPortable.Responses.ElmResponses;
 
-namespace ElmCommunicator.Commands.ElmCommands
+namespace ElmCommunicatorPortable.Commands.ElmCommands
 {
     public class AdaptiveTimingControlSendMessage : SendMessage
     {
         public AdaptiveTimingControlSendMessage(string id)
         {
+            this.ResponseMessage = new AdaptiveTimingControlResponseMessage();
             Command = "AT AT";
 
             if (string.IsNullOrEmpty(id))

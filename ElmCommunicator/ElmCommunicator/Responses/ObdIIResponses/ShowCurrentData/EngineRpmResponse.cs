@@ -1,11 +1,12 @@
 ﻿using System;
 using ElmCommunicator.Commands;
+using UnitsNet;
 
 namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
 {
     public class EngineRpmResponse : ResponseMessage
     {
-        public double Rpm;
+        public RotationalSpeed  Rpm;
 
         public override IReceiveMessage Parse(string message)
         {
@@ -16,12 +17,13 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
             return this;
         }
 
-        public double CalculateRpm(string data)
+        public RotationalSpeed CalculateRpm(string data)
         {
             byte[] rpmBytes = StringToByteArray(data);
             if (rpmBytes != null)
             {
-                return (rpmBytes[0]*256 + rpmBytes[1])/4f;
+                double rpm = (rpmBytes[0]*256 + rpmBytes[1])/4f;
+                return RotationalSpeed.FromRevolutionsPerMinute(rpm);
             }
 
             throw new NullReferenceException("rpmBytes");

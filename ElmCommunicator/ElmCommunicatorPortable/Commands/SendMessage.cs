@@ -1,6 +1,6 @@
 ﻿using System.Globalization;
 
-namespace ElmCommunicator.Commands
+namespace ElmCommunicatorPortable.Commands
 {
     /// <summary>
     ///     A base message class for communication with the ELM327 device

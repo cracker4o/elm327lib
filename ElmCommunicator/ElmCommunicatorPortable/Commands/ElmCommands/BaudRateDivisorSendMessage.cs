@@ -1,11 +1,13 @@
 ﻿using System;
+using ElmCommunicatorPortable.Responses.ElmResponses;
 
-namespace ElmCommunicator.Commands.ElmCommands
+namespace ElmCommunicatorPortable.Commands.ElmCommands
 {
     public class BaudRateDivisorSendMessage : SendMessage
     {
         public BaudRateDivisorSendMessage()
         {
+            this.ResponseMessage = new BaudRateDivisorResponseMessage();
             Command = "AT BRD";
         }
 

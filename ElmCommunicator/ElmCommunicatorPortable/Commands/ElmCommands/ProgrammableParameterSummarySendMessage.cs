@@ -1,4 +1,4 @@
-﻿namespace ElmCommunicator.Commands.ElmCommands
+﻿namespace ElmCommunicatorPortable.Commands.ElmCommands
 {
     public class ProgrammableParameterSummarySendMessage : SendMessage
     {

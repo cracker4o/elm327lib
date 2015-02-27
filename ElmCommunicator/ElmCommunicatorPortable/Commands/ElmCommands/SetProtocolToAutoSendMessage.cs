@@ -1,6 +1,6 @@
 ﻿using System.Linq;
 
-namespace ElmCommunicator.Commands.ElmCommands
+namespace ElmCommunicatorPortable.Commands.ElmCommands
 {
     public class SetProtocolToAutoSendMessage : SendMessage
     {

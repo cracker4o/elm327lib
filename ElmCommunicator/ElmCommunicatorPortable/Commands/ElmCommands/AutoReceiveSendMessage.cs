@@ -1,9 +1,12 @@
-﻿namespace ElmCommunicator.Commands.ElmCommands
+﻿using ElmCommunicatorPortable.Responses.ElmResponses;
+
+namespace ElmCommunicatorPortable.Commands.ElmCommands
 {
     public class AutoReceiveSendMessage : SendMessage
     {
         public AutoReceiveSendMessage()
         {
+            this.ResponseMessage = new AutoReceiveResponseMessage();
             Command = "AT AR";
         }
     }

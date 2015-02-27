@@ -1,6 +1,6 @@
-﻿using ElmCommunicator.Commands;
+﻿using ElmCommunicatorPortable.Commands;
 
-namespace ElmCommunicator
+namespace ElmCommunicatorPortable
 {
     public interface ISender
     {

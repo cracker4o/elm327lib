@@ -1,7 +1,7 @@
-﻿using ElmCommunicator.Commands;
+﻿using ElmCommunicatorPortable.Commands;
 using UnitsNet;
 
-namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
+namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
 {
     public class FuelPressureResponse : ResponseMessage
     {

@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using ElmCommunicator.Commands;
+using ElmCommunicatorPortable.Commands;
 
-namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
+namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
 {
     public class SupportedPidsResponse : ResponseMessage
     {
@@ -16,7 +16,8 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
         public override IReceiveMessage Parse(string message)
         {
             Command = GetCommand(ref message);
-            byte[] pids = StringToByteArray(message.Substring(4), true);
+            Data = message.Substring(4);
+            byte[] pids = StringToByteArray(this.Data, true);
             _supportedPids = new BitArray(pids);
 
             return this;

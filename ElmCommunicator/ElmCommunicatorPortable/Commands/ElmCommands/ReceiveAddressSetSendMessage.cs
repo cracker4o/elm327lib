@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace ElmCommunicator.Commands.ElmCommands
+namespace ElmCommunicatorPortable.Commands.ElmCommands
 {
     public class ReceiveAddressSetSendMessage : SendMessage
     {

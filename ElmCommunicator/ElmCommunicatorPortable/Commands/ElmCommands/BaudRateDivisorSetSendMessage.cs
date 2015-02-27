@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Globalization;
+using ElmCommunicatorPortable.Responses.ElmResponses;
 
-namespace ElmCommunicator.Commands.ElmCommands
+namespace ElmCommunicatorPortable.Commands.ElmCommands
 {
     public class BaudRateDivisorSetSendMessage : SendMessage
     {
         public BaudRateDivisorSetSendMessage(string dataValue)
         {
+            this.ResponseMessage = new BaudRateDivisorResponseMessage();
             if (string.IsNullOrEmpty(dataValue))
                 throw new ArgumentNullException("dataValue", "The baudrate divisor dataValue is empty.");
 

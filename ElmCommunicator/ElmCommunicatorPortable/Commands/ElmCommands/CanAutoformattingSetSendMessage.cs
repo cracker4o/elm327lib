@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Globalization;
 
-namespace ElmCommunicator.Commands.ElmCommands
+namespace ElmCommunicatorPortable.Commands.ElmCommands
 {
     public class CanAutoformattingSetSendMessage : SendMessage
     {

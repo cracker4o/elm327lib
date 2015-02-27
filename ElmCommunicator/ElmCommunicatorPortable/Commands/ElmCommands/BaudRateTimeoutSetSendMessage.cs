@@ -1,12 +1,14 @@
 ﻿using System;
 using System.Globalization;
+using ElmCommunicatorPortable.Responses.ElmResponses;
 
-namespace ElmCommunicator.Commands.ElmCommands
+namespace ElmCommunicatorPortable.Commands.ElmCommands
 {
     public class BaudRateTimeoutSetSendMessage : SendMessage
     {
         public BaudRateTimeoutSetSendMessage(string dataValue)
         {
+            this.ResponseMessage = new CommonElmResponseMessage();
             if (string.IsNullOrEmpty(dataValue))
                 throw new ArgumentNullException("dataValue", "The baudrate dataValue is empty.");
 

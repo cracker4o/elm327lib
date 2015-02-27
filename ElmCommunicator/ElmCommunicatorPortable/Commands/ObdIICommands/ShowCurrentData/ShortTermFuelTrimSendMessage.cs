@@ -1,4 +1,6 @@
-﻿namespace ElmCommunicator.Commands.ObdIICommands.ShowCurrentData
+﻿using ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData;
+
+namespace ElmCommunicatorPortable.Commands.ObdIICommands.ShowCurrentData
 {
     public enum FuelBanks
     {
@@ -14,6 +16,7 @@
 
         public ShortTermFuelTrimSendMessage(FuelBanks fuelBank)
         {
+            this.ResponseMessage = new ShortTermFuelTrimResponse();
             Command = ShowCurrentDataCommand;
 
             switch (fuelBank)

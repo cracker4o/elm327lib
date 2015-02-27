@@ -1,7 +1,7 @@
 ﻿using System.Collections;
-using ElmCommunicator.Commands;
+using ElmCommunicatorPortable.Commands;
 
-namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
+namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
 {
     /// <summary>
     ///     Message structure
