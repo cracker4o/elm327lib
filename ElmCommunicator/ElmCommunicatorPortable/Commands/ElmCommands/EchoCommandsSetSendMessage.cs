@@ -13,6 +13,7 @@
 //    limitations under the License.
 using System;
 using System.Globalization;
+using ElmCommunicatorPortable.Responses.ElmResponses;
 
 namespace ElmCommunicatorPortable.Commands.ElmCommands
 {
@@ -22,6 +23,7 @@ namespace ElmCommunicatorPortable.Commands.ElmCommands
         {
             Command = "AT E";
             Data = Convert.ToInt32(state).ToString(CultureInfo.InvariantCulture);
+            ResponseMessage = new EchoCommandsResponseMessage();
         }
     }
 }
