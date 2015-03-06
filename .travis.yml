@@ -1,8 +1,8 @@
 language: csharp
-solution: ElmCommunicator.sln
+solution: ./ElmCommunicator/ElmCommunicator.sln
 install:
-  - nuget restore ElmCommunicator.sln
+  - nuget restore ./ElmCommunicator/ElmCommunicator.sln
   - nuget install NUnit.Runners -Version 2.6.4 -OutputDirectory testrunner
 script:
-  - xbuild /p:Configuration=Release ElmCommunicator.sln
-  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./ElmCommunicatorTests/bin/Release/ElmCommunicatorTests.dll
+  - xbuild /p:Configuration=Release ./ElmCommunicator/ElmCommunicator.sln
+  - mono ./testrunner/NUnit.Runners.2.6.4/tools/nunit-console.exe ./ElmCommunicator/ElmCommunicatorTests/bin/Release/ElmCommunicatorTests.dll
