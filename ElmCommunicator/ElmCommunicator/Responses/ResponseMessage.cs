@@ -29,6 +29,8 @@ namespace ElmCommunicator.Responses
 
         public string EndTermination { get; set; }
 
+        public abstract string ExpectedCommand { get; }
+
         public abstract IReceiveMessage Parse(string message);
 
         public T As<T>() where T : class
@@ -51,8 +53,8 @@ namespace ElmCommunicator.Responses
             while (counter > 0)
             {
                 result <<= 1;
-                result |= (byte) (val & 1);
-                val = (byte) (val >> 1);
+                result |= (byte)(val & 1);
+                val = (byte)(val >> 1);
                 counter--;
             }
 
@@ -102,13 +104,25 @@ namespace ElmCommunicator.Responses
                 }
             }
 
-            return (byte) output;
+            return (byte)output;
         }
 
         public string GetCommand(ref string message)
         {
             message = message.Replace(" ", string.Empty);
             return message.Substring(0, 4);
+        }
+
+        public virtual bool IsValid()
+        {
+            try
+            {
+                return string.Equals(this.ExpectedCommand, this.Command.Substring(2));
+            }
+            catch (IndexOutOfRangeException exp)
+            {
+                return false;
+            }
         }
     }
 }

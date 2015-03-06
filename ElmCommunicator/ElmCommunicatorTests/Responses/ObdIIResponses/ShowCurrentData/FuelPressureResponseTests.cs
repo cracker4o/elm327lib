@@ -31,7 +31,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldParseTheResponse()
         {
-            const string message = "41 01 55";
+            const string message = "41 0A 55";
             Pressure expectedPressure = Pressure.FromKilopascals(255);
             _response.Parse(message);
             Assert.AreEqual(expectedPressure.Kilopascals, _response.Pressure.Kilopascals);
@@ -40,10 +40,19 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldSetTheCommand()
         {
-            const string message = "41 01 55";
-            const string expectedCommand = "4101";
+            const string message = "41 0A 55";
+            const string expectedCommand = "410A";
             _response.Parse(message);
             Assert.AreEqual(expectedCommand, _response.Command);
+        }
+
+        [Test]
+        public void ShouldReturnNullWhenWrongCommand()
+        {
+            const string message = "41 01 55";
+            
+            var result = _response.Parse(message);
+            Assert.IsNull(result);
         }
     }
 }

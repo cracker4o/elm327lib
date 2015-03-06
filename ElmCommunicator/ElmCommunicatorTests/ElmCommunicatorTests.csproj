@@ -68,6 +68,7 @@
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\BarometricPressureResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\CalculatedEngineLoadValueResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\CommandedSecondaryAirStatusResponseTests.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\DistanceTravelledWithMilResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\EngineCoolantTemperatureResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\EngineRpmResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FreezeDtcResponseTests.cs" />

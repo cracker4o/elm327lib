@@ -23,9 +23,22 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
 {
     public class TimingAdvanceResponse : ResponseMessage
     {
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "0E";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             this.Command = this.GetCommand(ref message);
+            if(!this.IsValid())
+            {
+                return null;
+            }
+
             this.Data = message.Substring(4);
             TimingAdvance = (this.HexToDec(this.Data) - 128f) / 2;
             return this;

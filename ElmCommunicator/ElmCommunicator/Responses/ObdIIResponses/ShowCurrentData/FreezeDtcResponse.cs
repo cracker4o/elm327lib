@@ -19,10 +19,24 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
     {
         public byte[] ReceivedBytes { get; private set; }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "02";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             message = message.Replace(" ", string.Empty);
             Command = message.Substring(0, 4);
+
+            if (!this.IsValid())
+            {
+                return null;
+            }
+
             message = message.Substring(4);
             byte[] bytes = StringToByteArray(message, false);
             ReceivedBytes = bytes;

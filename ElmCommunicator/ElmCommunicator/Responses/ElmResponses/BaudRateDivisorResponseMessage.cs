@@ -18,6 +18,14 @@ namespace ElmCommunicator.Responses.ElmResponses
 {
     public class BaudRateDivisorResponseMessage : ResponseMessage
     {
+        public override string ExpectedCommand
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             throw new NotImplementedException();

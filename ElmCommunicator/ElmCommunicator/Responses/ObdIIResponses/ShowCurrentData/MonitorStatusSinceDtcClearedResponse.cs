@@ -101,9 +101,22 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
 
         public bool GetEgrAndVttSystemFailed { get; private set; }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "01";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             Command = GetCommand(ref message);
+            if (!this.IsValid())
+            {
+                return null;
+            }
+
             message = message.Substring(4);
             byte[] bytes = StringToByteArray(message, true);
             var bits = new BitArray(bytes);

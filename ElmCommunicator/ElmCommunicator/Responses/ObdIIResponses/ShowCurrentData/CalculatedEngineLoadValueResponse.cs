@@ -19,9 +19,22 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
     {
         public int EngineLoadValue { get; set; }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "04";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             Command = GetCommand(ref message);
+            if (!this.IsValid())
+            {
+                return null;
+            }
+
             Data = message.Substring(4);
             byte[] bytes = StringToByteArray(Data);
             EngineLoadValue = bytes[0]*100/255;

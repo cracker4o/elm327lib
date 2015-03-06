@@ -57,5 +57,13 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
             var response = this._response.Parse(message);
             Assert.AreEqual(2570, response.As<RuntimeSinceEngineStartResponse>().EngineTime);
         }
+
+        [Test]
+        public void ShouldReturnNullWhenWrongCommand()
+        {
+            string message = "41 1A 05 05";
+            var response = this._response.Parse(message);
+            Assert.IsNull(response);
+        }
     }
 }

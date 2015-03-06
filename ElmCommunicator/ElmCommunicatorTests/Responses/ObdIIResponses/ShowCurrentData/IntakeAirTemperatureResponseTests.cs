@@ -11,16 +11,9 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 using ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData;
-
 using NUnit.Framework;
-
 using UnitsNet;
 
 namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
@@ -59,6 +52,14 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
             var expectedTemperature = Temperature.FromDegreesCelsius(40);
             var result = this._response.Parse(message);
             Assert.AreEqual(expectedTemperature, result.As<IntakeAirTemperatureResponse>().Temperature);
+        }
+
+        [Test]
+        public void ShouldReturnNullWhenWrongCommand()
+        {
+            string message = "41 0A 50";
+            var result = this._response.Parse(message);
+            Assert.IsNull(result);
         }
     }
 }

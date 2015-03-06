@@ -24,7 +24,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldParseTheResponse()
         {
-            string message = "41 01 55";
+            string message = "41 07 55";
             double expectedTrim = -33.59375;
 
             _response = new FuelTrimResponse();
@@ -35,12 +35,22 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldSetTheCommandFromTheResponse()
         {
-            string message = "41 01 55";
-            string expectedCommand = "4101";
+            string message = "41 09 55";
+            string expectedCommand = "4109";
 
             _response = new FuelTrimResponse();
             _response.Parse(message);
             Assert.AreEqual(expectedCommand, _response.Command);
+        }
+
+        [Test]
+        public void ShouldReturnNullWhenWrongCommand()
+        {
+            string message = "41 01 55";
+
+            _response = new FuelTrimResponse();
+            var result = _response.Parse(message);
+            Assert.IsNull(result);
         }
     }
 }

@@ -22,6 +22,14 @@ namespace ElmCommunicator.Responses.ElmResponses
 {
     public class CommonElmResponseMessage : ResponseMessage
     {
+        public override string ExpectedCommand
+        {
+            get
+            {
+                throw new NotImplementedException();
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             this.GetCommand(ref message);

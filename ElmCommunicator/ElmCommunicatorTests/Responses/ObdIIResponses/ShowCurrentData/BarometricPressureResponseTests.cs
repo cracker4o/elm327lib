@@ -41,5 +41,13 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
             var result = _response.Parse(message);
             Assert.AreEqual(expectedPressure, result.As<BarometricPressureResponse>().Pressure);
         }
+
+        [Test]
+        public void ShouldReturnNullIfEmptyCommand()
+        {
+            string message = "41 35 10";
+            var result = _response.Parse(message);
+            Assert.IsNull(result);
+        }
     }
 }

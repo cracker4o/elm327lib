@@ -30,7 +30,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldGetTheTwoBytesFromTheMessage()
         {
-            const string message = "41 00 02 04";
+            const string message = "41 03 02 04";
             var result = _response.Parse(message);
 
             Assert.AreEqual(FuelSystemStatus.ClosedLoopOxySensor, result.As<FuelSystemStatusResponse>().FuelSystemOne);
@@ -40,10 +40,19 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldReturnAResult()
         {
-            const string message = "41 00 02 04";
+            const string message = "41 03 02 04";
             var result = _response.Parse(message).As<FuelSystemStatusResponse>();
 
             Assert.IsNotNull(result);
+        }
+
+        [Test]
+        public void ShouldReturnNullWhenWrongCommand()
+        {
+            const string message = "41 01 02 04";
+            var result = _response.Parse(message);
+
+            Assert.IsNull(result);
         }
     }
 }

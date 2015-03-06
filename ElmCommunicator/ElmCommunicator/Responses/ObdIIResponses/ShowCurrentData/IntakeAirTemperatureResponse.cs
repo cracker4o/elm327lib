@@ -25,9 +25,22 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
 {
     public class IntakeAirTemperatureResponse : ResponseMessage
     {
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "0F";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             this.Command = this.GetCommand(ref message);
+            if(!this.IsValid())
+            {
+                return null;
+            }
+
             this.Data = message.Substring(4);
             this.Temperature = Temperature.FromDegreesCelsius(this.HexToDec(this.Data) - 40);
             return this;

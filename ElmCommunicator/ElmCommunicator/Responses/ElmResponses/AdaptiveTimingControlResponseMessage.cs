@@ -18,6 +18,14 @@ namespace ElmCommunicator.Responses.ElmResponses
 {
     public class AdaptiveTimingControlResponseMessage : ResponseMessage
     {
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "AT";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             throw new NotImplementedException();

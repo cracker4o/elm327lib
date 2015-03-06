@@ -22,6 +22,14 @@ namespace ElmCommunicator.Responses.ElmResponses
             Command = "AT AMT";
         }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "AT AMT";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             Data = message;

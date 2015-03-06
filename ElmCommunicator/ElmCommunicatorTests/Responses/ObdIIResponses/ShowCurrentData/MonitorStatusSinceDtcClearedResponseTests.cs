@@ -396,5 +396,14 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
 
             Assert.AreEqual(expectedSecondaryAirSystemTest, response.As<MonitorStatusSinceDtcClearedResponse>().SecondaryAirSystem);
         }
+
+        [Test]
+        public void ShouldReturnNullIfWrongCommand()
+        {
+            const string responseMessage = "41 02 83 00 08 00";
+            var response = _response.Parse(responseMessage);
+
+            Assert.IsNull(response);
+        }
     }
 }

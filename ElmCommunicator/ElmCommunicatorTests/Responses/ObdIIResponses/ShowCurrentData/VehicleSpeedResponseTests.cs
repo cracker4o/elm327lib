@@ -33,8 +33,8 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldReadTheCommand()
         {
-            string message = "41 01 55";
-            string expectedCommand = "4101";
+            string message = "41 0D 55";
+            string expectedCommand = "410D";
             IReceiveMessage result = _response.Parse(message);
             Assert.AreEqual(expectedCommand, result.Command);
         }
@@ -43,10 +43,18 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         public void ShouldReadTheSpeed()
         {
             double expectedSpeed = 85;
-            string message = "41 01 55";
+            string message = "41 0D 55";
             var result = _response.Parse(message);
             Assert.IsNotNull(result);
             Assert.AreEqual(expectedSpeed, result.As<VehicleSpeedResponse>().Speed.KilometersPerHour);
+        }
+
+        [Test]
+        public void ShouldReturnNullWhenWrongCommand()
+        {
+            string message = "41 0A 55";
+            var result = _response.Parse(message);
+            Assert.IsNull(result);
         }
     }
 }

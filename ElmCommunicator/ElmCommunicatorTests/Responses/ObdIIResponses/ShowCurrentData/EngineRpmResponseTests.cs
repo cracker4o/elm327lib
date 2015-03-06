@@ -40,8 +40,8 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldGetTheCommand()
         {
-            string message = "41 01 55 55";
-            string expectedCommand = "4101";
+            string message = "41 0C 55 55";
+            string expectedCommand = "410C";
             _response.Parse(message);
             Assert.AreEqual(expectedCommand, _response.Command);
         }
@@ -49,10 +49,18 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldGetTheRpm()
         {
-            string message = "41 01 55 54";
+            string message = "41 0C 55 54";
             RotationalSpeed expectedData = RotationalSpeed.FromRevolutionsPerMinute(5461);
             _response.Parse(message);
             Assert.AreEqual(expectedData, _response.Rpm);
+        }
+
+        [Test]
+        public void ShouldReturnNullWhenWrongCommand()
+        {
+            string message = "41 00 55 54";
+            var result = _response.Parse(message);
+            Assert.IsNull(result);
         }
     }
 }

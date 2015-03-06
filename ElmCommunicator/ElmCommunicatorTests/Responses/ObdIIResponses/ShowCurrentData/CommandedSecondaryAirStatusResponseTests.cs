@@ -99,5 +99,13 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
             var response = _secondaryAirStatusResponse.Parse(message);
             Assert.AreEqual(AirStatusOptions.Default, response.As<CommandedSecondaryAirStatusResponse>().AirStatusResponse);
         }
+
+        [Test]
+        public void ShouldReturnNullIfWrongCommand()
+        {
+            string message = "41 13 44";
+            var response = _secondaryAirStatusResponse.Parse(message);
+            Assert.IsNull(response);
+        }
     }
 }

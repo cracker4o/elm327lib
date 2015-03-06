@@ -31,7 +31,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldReturnAResult()
         {
-            const string message = "41 00 15";
+            string message = "41 04 15";
             IReceiveMessage result = _response.Parse(message);
 
             Assert.IsNotNull(result);
@@ -40,11 +40,20 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldReturnTheEngineLoadValue()
         {
-            const string message = "41 00 0F";
-            const int expectedEngineLoad = 15*100/255;
+            string message = "41 04 0F";
+            int expectedEngineLoad = 15 * 100 / 255;
             var result = _response.Parse(message);
 
             Assert.AreEqual(expectedEngineLoad, result.As<CalculatedEngineLoadValueResponse>().EngineLoadValue);
+        }
+
+        [Test]
+        public void ShouldReturnNullIfWrongCommand()
+        {
+            string message = "41 00 0F";
+            var result = _response.Parse(message);
+
+            Assert.IsNull(result);
         }
     }
 }

@@ -26,14 +26,32 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
             set { _supportedPids = value; }
         }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "00;20;40;60;80;A0;C0";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             Command = GetCommand(ref message);
+            if(!this.IsValid())
+            {
+                return null;
+            }
+
             Data = message.Substring(4);
             byte[] pids = StringToByteArray(this.Data, true);
             _supportedPids = new BitArray(pids);
 
             return this;
+        }
+
+        public override bool IsValid()
+        {
+            return this.ExpectedCommand.Contains(this.Command.Substring(2));
         }
     }
 }

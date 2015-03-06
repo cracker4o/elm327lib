@@ -35,8 +35,8 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldSetTheCommand()
         {
-            string expectedCommand = "4301";
-            _response.Parse("43 01 08");
+            string expectedCommand = "4111";
+            _response.Parse("41 11 08");
             Assert.AreEqual(expectedCommand, _response.Command);
         }
 
@@ -44,7 +44,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         public void ShouldSetTheDate()
         {
             string expectedData = "08";
-            _response.Parse("43 01 08");
+            _response.Parse("41 11 08");
             Assert.AreEqual(expectedData, _response.Data);
         }
 
@@ -52,8 +52,15 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         public void ShouldSetTheThrottlePosition()
         {
             int expectedThrottle = 8*100/255;
-            _response.Parse("43 01 08");
+            _response.Parse("41 11 08");
             Assert.AreEqual(expectedThrottle, _response.ThrottlePosition);
+        }
+
+        [Test]
+        public void ShouldReturnNullWhenWrongCommand()
+        {
+            var result = _response.Parse("41 19 08");
+            Assert.IsNull(result);
         }
     }
 }

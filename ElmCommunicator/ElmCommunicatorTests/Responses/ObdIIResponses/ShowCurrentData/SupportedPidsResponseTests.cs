@@ -24,7 +24,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [SetUp]
         public void SetUp()
         {
-            _response = MockRepository.GeneratePartialMock<SupportedPidsResponse>();
+            _response = new SupportedPidsResponse();
         }
 
         private SupportedPidsResponse _response;
@@ -32,7 +32,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldFillBitArrayWithCorrectData()
         {
-            const string fullCommand = "41 00 88 19 80 00";
+            const string fullCommand = "41 20 88 19 80 00";
             const string expectedMessage = "88 19 80 00";
             byte[] messageBytes = _response.StringToByteArray(expectedMessage, true);
             var expectedArray = new BitArray(messageBytes);
@@ -40,6 +40,15 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
             _response.Parse(fullCommand);
 
             Assert.AreEqual(expectedArray, _response.SupportedPids);
+        }
+
+        [Test]
+        public void ShouldReturnNullWhenCommandIsWrong()
+        {
+            string fullCommand = "41 05 88 19 80 00";
+            var response = _response.Parse(fullCommand);
+
+            Assert.IsNull(response);
         }
     }
 }

@@ -23,9 +23,23 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
 {
     public class BarometricPressureResponse : ResponseMessage
     {
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "33";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             this.Command = this.GetCommand(ref message);
+
+            if (!this.IsValid())
+            {
+                return null;
+            }
+
             this.Data = message.Substring(4);
             this.Pressure = Pressure.FromKilopascals(this.HexToDec(this.Data));
 

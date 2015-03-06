@@ -30,12 +30,19 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldReceiveTwoByteResult()
         {
-            string messageResponse = "43 00 03 09";
+            string messageResponse = "43 02 03 09";
             byte expected = 3;
             byte second = 9;
             _freezeDtc.Parse(messageResponse);
             Assert.AreEqual(expected, _freezeDtc.ReceivedBytes[0]);
             Assert.AreEqual(second, _freezeDtc.ReceivedBytes[1]);
+        }
+
+        public void ShouldReturnNullIfWrongCommand()
+        {
+            string message = "41 02 03 09";
+            var result = _freezeDtc.Parse(message);
+            Assert.IsNull(result);
         }
     }
 }

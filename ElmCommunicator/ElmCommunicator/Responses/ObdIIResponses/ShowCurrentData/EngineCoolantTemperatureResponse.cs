@@ -27,9 +27,22 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
 
         public Temperature Temperature { get; private set; }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "05";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             Command = GetCommand(ref message);
+            if (!this.IsValid())
+            {
+                return null;
+            }
+
             Data = message.Substring(4);
             double data = StringToByteArray(Data)[0] - AdjustmentCoefficient;
             Temperature = Temperature.FromDegreesCelsius(data);

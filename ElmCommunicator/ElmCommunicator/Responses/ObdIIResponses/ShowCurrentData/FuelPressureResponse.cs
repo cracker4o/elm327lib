@@ -20,12 +20,25 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
     {
         public Pressure Pressure { get; private set; }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "0A";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             Command = GetCommand(ref message);
+            if (!this.IsValid())
+            {
+                return null;
+            }
+
             Data = message.Substring(4);
             int value = HexToDec(Data);
-            Pressure = Pressure.FromKilopascals(value*3);
+            Pressure = Pressure.FromKilopascals(value * 3);
             return this;
         }
     }

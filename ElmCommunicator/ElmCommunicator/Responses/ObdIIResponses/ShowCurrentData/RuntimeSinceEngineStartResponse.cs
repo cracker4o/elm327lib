@@ -23,9 +23,22 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
 {
     public class RuntimeSinceEngineStartResponse : ResponseMessage
     {
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "1F";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             this.Command = this.GetCommand(ref message);
+            if(!this.IsValid())
+            {
+                return null;
+            }
+
             this.Data = message.Substring(4);
             var responseBytes = this.StringToByteArray(this.Data, false);
             this.EngineTime = (responseBytes[0] * 256) + responseBytes[1];

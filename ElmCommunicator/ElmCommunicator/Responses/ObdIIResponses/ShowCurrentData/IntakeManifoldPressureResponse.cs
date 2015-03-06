@@ -19,9 +19,23 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
     {
         public int Pressure { get; set; }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "0B";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             Command = GetCommand(ref message);
+
+            if(!this.IsValid())
+            {
+                return null;
+            }
+
             Data = message.Substring(4);
             Pressure = HexToDec(Data);
 

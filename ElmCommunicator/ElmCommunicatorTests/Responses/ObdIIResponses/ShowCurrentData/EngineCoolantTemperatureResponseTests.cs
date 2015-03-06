@@ -25,17 +25,17 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [SetUp]
         public void SetUp()
         {
-            _response = MockRepository.GeneratePartialMock<EngineCoolantTemperatureResponse>();
+            _response = new EngineCoolantTemperatureResponse();
         }
 
-        private const string Message = "41 00 3C";
+        private const string Message = "41 05 3C";
 
         private EngineCoolantTemperatureResponse _response;
 
         [Test]
         public void ShouldGetTheCommand()
         {
-            const string expectedCommand = "4100";
+            const string expectedCommand = "4105";
             IReceiveMessage response = _response.Parse(Message);
             Assert.AreEqual(expectedCommand, response.Command);
         }
@@ -43,11 +43,19 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldParseTheReceivedMessage()
         {
-            const string expectedCommand = "4100";
+            const string expectedCommand = "4105";
             const float expectedTemperature = 20;
+
             _response.Parse(Message);
             Assert.AreEqual(expectedCommand, _response.Command);
             Assert.AreEqual(expectedTemperature, _response.Temperature.DegreesCelsius);
+        }
+
+        [Test]
+        public void ShouldReturnNullIfInvalidCommand()
+        {
+            IReceiveMessage response = _response.Parse("41 00 3C");
+            Assert.IsNull(response);
         }
     }
 }

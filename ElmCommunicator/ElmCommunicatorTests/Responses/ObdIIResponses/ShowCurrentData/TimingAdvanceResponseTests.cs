@@ -60,5 +60,13 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
             var result = _timingAdvanceResponse.Parse(message);
             Assert.AreEqual(expectedTimingAdvance, result.As<TimingAdvanceResponse>().TimingAdvance);
         }
+
+        [Test]
+        public void ShouldReturnNullWhenWrongCommand()
+        {
+            string message = "41 02 45";
+            var result = _timingAdvanceResponse.Parse(message);
+            Assert.IsNull(result);
+        }
     }
 }

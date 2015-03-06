@@ -20,9 +20,22 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
     {
         public Speed Speed { get; set; }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "0D";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             Command = GetCommand(ref message);
+            if (!this.IsValid())
+            {
+                return null;
+            }
+
             Data = message.Substring(4);
             this.Speed = Speed.FromKilometersPerHour(HexToDec(Data));
             return this;

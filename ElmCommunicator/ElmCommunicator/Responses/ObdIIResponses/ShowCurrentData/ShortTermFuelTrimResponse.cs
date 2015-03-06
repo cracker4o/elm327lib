@@ -17,9 +17,17 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
 {
     public class ShortTermFuelTrimResponse : FuelTrimResponse
     {
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "06;08";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
-            return base.Parse(message); ;
+            return base.Parse(message);
         }
     }
 }

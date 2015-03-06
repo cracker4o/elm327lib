@@ -53,9 +53,22 @@ namespace ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData
             _airStatusOptions = AirStatusOptions.Default;
         }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "12";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             this.Command = this.GetCommand(ref message);
+            if (!this.IsValid())
+            {
+                return null;
+            }
+
             this.Data = message.Substring(4);
             byte value = byte.Parse(this.Data);
 

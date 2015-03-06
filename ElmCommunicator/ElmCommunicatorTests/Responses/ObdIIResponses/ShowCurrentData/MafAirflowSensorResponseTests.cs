@@ -53,9 +53,17 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         public void ShouldSetMaf()
         {
             string expectedMessage = "41 10 30 40";
-            double expectedMaf = (0x30 * 256.0 + 0x40) / 100; ;
+            double expectedMaf = ((0x30 * 256.0) + 0x40) / 100;
             var response = _mafAirflowSensorResponse.Parse(expectedMessage);
             Assert.AreEqual(expectedMaf, response.As<MafAirflowSensorResponse>().MassAirflow);
+        }
+
+        [Test]
+        public void ShouldReturnNullWhenWrongCommand()
+        {
+            string expectedMessage = "41 05 30 40";
+            var response = _mafAirflowSensorResponse.Parse(expectedMessage);
+            Assert.IsNull(response);
         }
     }
 }
