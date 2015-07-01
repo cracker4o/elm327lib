@@ -21,9 +21,22 @@ namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
     {
         public RotationalSpeed  Rpm;
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "0C";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             Command = GetCommand(ref message);
+            if (!this.IsValid())
+            {
+                return null;
+            }
+
             Data = message.Substring(4);
             Rpm = CalculateRpm(Data);
 
@@ -35,7 +48,7 @@ namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
             byte[] rpmBytes = StringToByteArray(data);
             if (rpmBytes != null)
             {
-                double rpm = (rpmBytes[0]*256 + rpmBytes[1])/4f;
+                double rpm = ((rpmBytes[0] * 256) + rpmBytes[1]) / 4f;
                 return RotationalSpeed.FromRevolutionsPerMinute(rpm);
             }
 

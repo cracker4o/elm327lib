@@ -11,8 +11,10 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-using System.Collections;
+
 using ElmCommunicatorPortable.Commands;
+using System.Collections;
+using UnitsNet;
 
 namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
 {
@@ -26,14 +28,32 @@ namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
             set { _supportedPids = value; }
         }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "00;20;40;60;80;A0;C0";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             Command = GetCommand(ref message);
+            if(!this.IsValid())
+            {
+                return null;
+            }
+
             Data = message.Substring(4);
             byte[] pids = StringToByteArray(this.Data, true);
             _supportedPids = new BitArray(pids);
 
             return this;
+        }
+
+        public override bool IsValid()
+        {
+            return this.ExpectedCommand.Contains(this.Command.Substring(2));
         }
     }
 }

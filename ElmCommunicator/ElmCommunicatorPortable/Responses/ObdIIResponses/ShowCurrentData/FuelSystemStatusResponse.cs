@@ -11,6 +11,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using ElmCommunicatorPortable.Commands;
 
 namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
@@ -24,12 +25,25 @@ namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
 
         public FuelSystemStatus FuelSystemTwo { get; private set; }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "03";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             Command = GetCommand(ref message);
+            if (!this.IsValid())
+            {
+                return null;
+            }
+
             byte[] fuelSystems = StringToByteArray(message.Substring(4));
-            FuelSystemOne = (FuelSystemStatus) fuelSystems[FuelSystemOneIndex];
-            FuelSystemTwo = (FuelSystemStatus) fuelSystems[FuelSystemTwoIndex];
+            FuelSystemOne = (FuelSystemStatus)fuelSystems[FuelSystemOneIndex];
+            FuelSystemTwo = (FuelSystemStatus)fuelSystems[FuelSystemTwoIndex];
 
             return this;
         }

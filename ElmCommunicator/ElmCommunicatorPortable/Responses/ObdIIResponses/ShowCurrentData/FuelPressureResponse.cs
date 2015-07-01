@@ -11,6 +11,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using ElmCommunicatorPortable.Commands;
 using UnitsNet;
 
@@ -20,12 +21,25 @@ namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
     {
         public Pressure Pressure { get; private set; }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "0A";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             Command = GetCommand(ref message);
+            if (!this.IsValid())
+            {
+                return null;
+            }
+
             Data = message.Substring(4);
             int value = HexToDec(Data);
-            Pressure = Pressure.FromKilopascals(value*3);
+            Pressure = Pressure.FromKilopascals(value * 3);
             return this;
         }
     }

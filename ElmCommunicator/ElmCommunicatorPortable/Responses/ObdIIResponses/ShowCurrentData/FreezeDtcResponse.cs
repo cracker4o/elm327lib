@@ -11,6 +11,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using ElmCommunicatorPortable.Commands;
 
 namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
@@ -19,10 +20,24 @@ namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
     {
         public byte[] ReceivedBytes { get; private set; }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "02";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             message = message.Replace(" ", string.Empty);
             Command = message.Substring(0, 4);
+
+            if (!this.IsValid())
+            {
+                return null;
+            }
+
             message = message.Substring(4);
             byte[] bytes = StringToByteArray(message, false);
             ReceivedBytes = bytes;

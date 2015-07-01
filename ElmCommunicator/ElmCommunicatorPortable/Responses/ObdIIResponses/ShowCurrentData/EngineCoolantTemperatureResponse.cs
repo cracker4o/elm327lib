@@ -11,6 +11,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using ElmCommunicatorPortable.Commands;
 using UnitsNet;
 
@@ -27,9 +28,22 @@ namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
 
         public Temperature Temperature { get; private set; }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "05";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             Command = GetCommand(ref message);
+            if (!this.IsValid())
+            {
+                return null;
+            }
+
             Data = message.Substring(4);
             double data = StringToByteArray(Data)[0] - AdjustmentCoefficient;
             Temperature = Temperature.FromDegreesCelsius(data);

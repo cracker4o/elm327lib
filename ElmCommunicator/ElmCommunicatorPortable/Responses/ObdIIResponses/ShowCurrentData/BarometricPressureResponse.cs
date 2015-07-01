@@ -11,6 +11,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using ElmCommunicatorPortable.Commands;
 using UnitsNet;
 
@@ -18,9 +19,23 @@ namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
 {
     public class BarometricPressureResponse : ResponseMessage
     {
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "33";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             this.Command = this.GetCommand(ref message);
+
+            if (!this.IsValid())
+            {
+                return null;
+            }
+
             this.Data = message.Substring(4);
             this.Pressure = Pressure.FromKilopascals(this.HexToDec(this.Data));
 

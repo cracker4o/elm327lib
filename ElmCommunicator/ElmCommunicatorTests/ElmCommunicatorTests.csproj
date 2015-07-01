@@ -72,6 +72,7 @@
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\EngineCoolantTemperatureResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\EngineRpmResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FreezeDtcResponseTests.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelLevelSendResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelPressureResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelSystemStatusResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelTrimResponseTests.cs" />

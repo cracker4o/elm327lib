@@ -1,0 +1,32 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 2013
+VisualStudioVersion = 12.0.31101.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ElmCommunicatorPortable", "ElmCommunicatorPortable.csproj", "{C935F9A0-36EA-4A59-887A-A18A0312FECE}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = ".nuget", ".nuget", "{9397262C-E506-457D-A353-07196ACF8C61}"
+	ProjectSection(SolutionItems) = preProject
+		.nuget\NuGet.Config = .nuget\NuGet.Config
+		.nuget\NuGet.exe = .nuget\NuGet.exe
+		.nuget\NuGet.targets = .nuget\NuGet.targets
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		LocalTest|Any CPU = LocalTest|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{C935F9A0-36EA-4A59-887A-A18A0312FECE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C935F9A0-36EA-4A59-887A-A18A0312FECE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C935F9A0-36EA-4A59-887A-A18A0312FECE}.LocalTest|Any CPU.ActiveCfg = LocalTest|Any CPU
+		{C935F9A0-36EA-4A59-887A-A18A0312FECE}.LocalTest|Any CPU.Build.0 = LocalTest|Any CPU
+		{C935F9A0-36EA-4A59-887A-A18A0312FECE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C935F9A0-36EA-4A59-887A-A18A0312FECE}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal

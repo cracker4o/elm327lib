@@ -11,6 +11,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using System;
 using System.Globalization;
 using ElmCommunicatorPortable.Responses.ElmResponses;
@@ -21,9 +22,9 @@ namespace ElmCommunicatorPortable.Commands.ElmCommands
     {
         public EchoCommandsSetSendMessage(bool state)
         {
+            this.ResponseMessage = new EchoCommandsResponseMessage();
             Command = "AT E";
             Data = Convert.ToInt32(state).ToString(CultureInfo.InvariantCulture);
-            ResponseMessage = new EchoCommandsResponseMessage();
         }
     }
 }

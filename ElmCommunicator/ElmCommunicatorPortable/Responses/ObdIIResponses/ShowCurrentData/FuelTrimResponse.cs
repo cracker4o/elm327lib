@@ -11,6 +11,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using ElmCommunicatorPortable.Commands;
 
 namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
@@ -24,13 +25,32 @@ namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
             get { return _fuelTrim; }
         }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "07;09";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             Command = GetCommand(ref message);
+
+            if(!this.IsValid())
+            {
+                return null;
+            }
+
             Data = message.Substring(4);
             int value = HexToDec(Data);
             _fuelTrim = (value - 128f)*(100f/128f);
             return this;
+        }
+
+        public override bool IsValid()
+        {
+            return ExpectedCommand.Contains(this.Command.Substring(2));
         }
     }
 }

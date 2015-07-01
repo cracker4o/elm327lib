@@ -11,11 +11,12 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-using System;
-using System.Collections;
+
 using System.Globalization;
 using System.Linq;
 using ElmCommunicatorPortable.Commands;
+using System;
+using System.Collections;
 
 namespace ElmCommunicatorPortable.Responses
 {
@@ -28,6 +29,8 @@ namespace ElmCommunicatorPortable.Responses
         public string StartTermination { get; set; }
 
         public string EndTermination { get; set; }
+
+        public abstract string ExpectedCommand { get; }
 
         public abstract IReceiveMessage Parse(string message);
 
@@ -51,8 +54,8 @@ namespace ElmCommunicatorPortable.Responses
             while (counter > 0)
             {
                 result <<= 1;
-                result |= (byte) (val & 1);
-                val = (byte) (val >> 1);
+                result |= (byte)(val & 1);
+                val = (byte)(val >> 1);
                 counter--;
             }
 
@@ -102,13 +105,25 @@ namespace ElmCommunicatorPortable.Responses
                 }
             }
 
-            return (byte) output;
+            return (byte)output;
         }
 
         public string GetCommand(ref string message)
         {
             message = message.Replace(" ", string.Empty);
             return message.Substring(0, 4);
+        }
+
+        public virtual bool IsValid()
+        {
+            try
+            {
+                return string.Equals(this.ExpectedCommand, this.Command.Substring(2));
+            }
+            catch (IndexOutOfRangeException)
+            {
+                return false;
+            }
         }
     }
 }

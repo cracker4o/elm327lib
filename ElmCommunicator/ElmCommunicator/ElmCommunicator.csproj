@@ -44,6 +44,7 @@
     <Compile Include="Commands\ElmCommands\AdaptiveTimingControlSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\AllowLongSendMessages.cs" />
     <Compile Include="Commands\ElmCommands\AutoReceiveSendMessage.cs" />
+    <Compile Include="Commands\ElmCommands\BatteryVoltageSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\BaudRateDivisorSetSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\BaudRateDivisorSendMessage.cs" />
     <Compile Include="Commands\ElmCommands\BaudRateTimeoutSetSendMessage.cs" />
@@ -126,6 +127,7 @@
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\EngineCoolantTempSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\EngineRpmSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\FreezeDtcSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowCurrentData\FuelLevelSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\FuelPressureSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\FuelSystemStatusSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\IntakeAirTemperatureSendMessage.cs" />
@@ -154,6 +156,7 @@
     <Compile Include="Responses\ElmResponses\BaudRateDivisorResponseMessage.cs" />
     <Compile Include="Responses\ElmResponses\CommonElmResponseMessage.cs" />
     <Compile Include="Responses\ElmResponses\EchoCommandsResponseMessage.cs" />
+    <Compile Include="Responses\ElmResponses\ReadInputVoltageResponseMessage.cs" />
     <Compile Include="Responses\ElmResponses\SetProtocolResponseMessage.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\BarometricPressureResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\CalculatedEngineLoadValueResponse.cs" />
@@ -162,6 +165,7 @@
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\EngineCoolantTemperatureResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\EngineRpmResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FreezeDtcResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelLevelResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelPressureResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelSystemStatusResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\FuelTrimResponse.cs" />

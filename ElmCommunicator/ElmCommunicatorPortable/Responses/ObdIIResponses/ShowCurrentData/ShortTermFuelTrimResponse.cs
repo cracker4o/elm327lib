@@ -11,15 +11,24 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using ElmCommunicatorPortable.Commands;
 
 namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
 {
     public class ShortTermFuelTrimResponse : FuelTrimResponse
     {
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "06;08";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
-            return base.Parse(message); ;
+            return base.Parse(message);
         }
     }
 }

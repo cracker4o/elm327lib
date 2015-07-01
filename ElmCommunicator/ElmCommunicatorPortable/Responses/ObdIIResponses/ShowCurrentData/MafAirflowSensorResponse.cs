@@ -11,6 +11,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using ElmCommunicatorPortable.Commands;
 
 namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
@@ -19,13 +20,27 @@ namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
     {
         public double MassAirflow { get; private set; }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "10";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             this.Command = this.GetCommand(ref message);
+
+            if (!this.IsValid())
+            {
+                return null;
+            }
+
             this.Data = message.Substring(4);
             var mafBytes = this.StringToByteArray(this.Data);
 
-            MassAirflow = (mafBytes[0]*256.0 + mafBytes[1])/100;
+            MassAirflow = ((mafBytes[0] * 256.0) + mafBytes[1]) / 100;
 
             return this;
         }

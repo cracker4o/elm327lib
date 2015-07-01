@@ -11,6 +11,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
+
 using System;
 using ElmCommunicatorPortable.Commands;
 
@@ -48,9 +49,22 @@ namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
             _airStatusOptions = AirStatusOptions.Default;
         }
 
+        public override string ExpectedCommand
+        {
+            get
+            {
+                return "12";
+            }
+        }
+
         public override IReceiveMessage Parse(string message)
         {
             this.Command = this.GetCommand(ref message);
+            if (!this.IsValid())
+            {
+                return null;
+            }
+
             this.Data = message.Substring(4);
             byte value = byte.Parse(this.Data);
 
