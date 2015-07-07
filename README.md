@@ -1,7 +1,7 @@
 elm327lib
 =========
 
-[![Build Status](https://travis-ci.org/cracker4o/elm327lib.svg?branch=master)](https://travis-ci.org/cracker4o/elm327lib)
+[![Build Status](https://travis-ci.org/cracker4o/elm327lib.svg?branch=ElmClassLibrary)](https://travis-ci.org/cracker4o/elm327lib)
 
 A C# library for communication with ELM327 devices and OBD II protocols.
 
