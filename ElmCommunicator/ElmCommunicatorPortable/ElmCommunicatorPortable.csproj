@@ -209,7 +209,7 @@
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnitsNet, Version=3.14.0.314, Culture=neutral, processorArchitecture=MSIL">
-      <HintPath>..\..\..\..\BitBucket\ridepulse\packages\UnitsNet.3.14.0\lib\portable-net45+win+wp80+wpa81\UnitsNet.dll</HintPath>
+      <HintPath>..\packages\UnitsNet.3.14.0\lib\portable-net45+win+wp80+wpa81\UnitsNet.dll</HintPath>
       <Private>True</Private>
     </Reference>
   </ItemGroup>
