@@ -13,7 +13,7 @@
 //    limitations under the License.
 using System;
 using System.Collections;
-using ElmCommunicator.Responses;
+using ElmCommunicatorPortable.Responses;
 using NUnit.Framework;
 using Rhino.Mocks;
 

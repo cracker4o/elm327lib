@@ -64,7 +64,6 @@
     <Compile Include="Commands\SendMessageTests.cs" />
     <Compile Include="Commands\ElmCommands\SetIsoBaudRateSetSendMessageTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="ReceiverTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\BarometricPressureResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\CalculatedEngineLoadValueResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\CommandedSecondaryAirStatusResponseTests.cs" />
@@ -86,17 +85,14 @@
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\TimingAdvanceResponseTests.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\VehicleSpeedResponseTests.cs" />
     <Compile Include="Responses\ResponseMessageTests.cs" />
-    <Compile Include="SenderTests.cs" />
-    <Compile Include="SerialCommunicatorTests.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup />
   <ItemGroup>
-    <ProjectReference Include="..\ElmCommunicator\ElmCommunicator.csproj">
-      <Project>{ddd84844-3085-4b4d-9171-2a52ad35bb41}</Project>
-      <Name>ElmCommunicator</Name>
+    <ProjectReference Include="..\ElmCommunicatorPortable\ElmCommunicatorPortable.csproj">
+      <Project>{c935f9a0-36ea-4a59-887a-a18a0312fece}</Project>
+      <Name>ElmCommunicatorPortable</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

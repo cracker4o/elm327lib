@@ -119,7 +119,7 @@ namespace ElmCommunicator.Responses
             {
                 return string.Equals(this.ExpectedCommand, this.Command.Substring(2));
             }
-            catch (IndexOutOfRangeException exp)
+            catch (IndexOutOfRangeException)
             {
                 return false;
             }

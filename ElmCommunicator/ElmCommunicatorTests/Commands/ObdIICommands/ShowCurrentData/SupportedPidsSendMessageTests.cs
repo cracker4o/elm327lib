@@ -11,7 +11,7 @@
 //    WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
-using ElmCommunicator.Commands.ObdIICommands.ShowCurrentData;
+using ElmCommunicatorPortable.Commands.ObdIICommands.ShowCurrentData;
 using NUnit.Framework;
 
 namespace ElmCommunicatorTests.Commands.ObdIICommands.ShowCurrentData

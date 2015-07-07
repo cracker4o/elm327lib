@@ -12,7 +12,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 using System.Collections;
-using ElmCommunicator.Responses.ObdIIResponses.ShowCurrentData;
+using ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData;
 using NUnit.Framework;
 using Rhino.Mocks;
 

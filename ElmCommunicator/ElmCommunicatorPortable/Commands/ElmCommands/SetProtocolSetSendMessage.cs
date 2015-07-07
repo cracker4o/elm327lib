@@ -33,6 +33,7 @@ namespace ElmCommunicatorPortable.Commands.ElmCommands
             else
             {
                 Data = protocolId.ToString("X")
+                    .ToCharArray()
                     .Last()
                     .ToString();
             }

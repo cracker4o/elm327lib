@@ -12,7 +12,7 @@
 //    See the License for the specific language governing permissions and
 //    limitations under the License.
 using System.Globalization;
-using ElmCommunicator.Commands.ElmCommands;
+using ElmCommunicatorPortable.Commands.ElmCommands;
 using NUnit.Framework;
 
 namespace ElmCommunicatorTests.Commands.ElmCommands
