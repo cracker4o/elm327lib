@@ -80,35 +80,51 @@ namespace ElmCommunicatorPortable.Responses
                 }).ToArray();
         }
 
-        public byte ConvertBitArrayToByte(BitArray bits, int startIdx = 0, int length = 8)
+        public byte ConvertBitsToByte(byte original, byte startIdx = 0, byte length = 8)
         {
+            if(length < 1)
+                throw new ArgumentOutOfRangeException("length");
+
             if (length > 8)
                 throw new ArgumentOutOfRangeException("length");
 
-            if (bits.Length < 8)
-                throw new ArgumentOutOfRangeException("bits");
+            var distance = (byte)(8 - length);
+            var result = original;
 
-            int output = 0;
-            int distance = 8 - length;
-
-            for (int i = 0; i < 8; i++)
+            if (startIdx > 0)
             {
-                if (distance > 0)
-                {
-                    distance--;
-                    continue;
-                }
-
-                if (bits.Get(i))
-                {
-                    output += (1 << (7 - i));
-                }
+                result = (byte)(original >> startIdx);
             }
 
-            return (byte)output;
+            switch (length)
+            {
+                case 1:
+                    result = (byte)(result & 1);
+                    break;
+                case 2:
+                    result = (byte)(result & 3);
+                    break;
+                case 3:
+                    result = (byte)(result & 7);
+                    break;
+                case 4:
+                    result = (byte)(result & 15);
+                    break;
+                case 5:
+                    result = (byte)(result & 31);
+                    break;
+                case 6:
+                    result = (byte)(result & 63);
+                    break;
+                case 7:
+                    result = (byte)(result & 127);
+                    break;
+            }
+
+            return result;
         }
 
-        public string GetCommand(ref string message)
+        public virtual string GetCommand(ref string message)
         {
             message = message.Replace(" ", string.Empty);
             return message.Substring(0, 4);

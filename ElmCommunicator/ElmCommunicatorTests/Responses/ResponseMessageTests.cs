@@ -33,23 +33,8 @@ namespace ElmCommunicatorTests.Responses
         [Test]
         public void ShouldConvertBitArrayToByte()
         {
-            var bitArray = new BitArray(8);
-            bitArray[4] = true;
-            const byte expectedByte = 8;
-
-            byte actualByte = _responseMessage.ConvertBitArrayToByte(bitArray);
-
-            Assert.AreEqual(expectedByte, actualByte);
-        }
-
-        [Test]
-        public void ShouldConvertBitArrayWithLesThanEightBitsToByte()
-        {
-            var bitArray = new BitArray(12);
-            bitArray[3] = true;
-            const byte expectedByte = 16;
-
-            byte actualByte = _responseMessage.ConvertBitArrayToByte(bitArray, 2, 5);
+            const byte expectedByte = 1;
+            byte actualByte = _responseMessage.ConvertBitsToByte(8, 3, 1);
 
             Assert.AreEqual(expectedByte, actualByte);
         }
@@ -110,14 +95,10 @@ namespace ElmCommunicatorTests.Responses
         }
 
         [Test]
-        public void ShouldThrowExceptionIfBitsLengthLessThanEight()
+        public void ShouldThrowAnExceptionWhenLengthLessThanOne()
         {
-            var expected = new ArgumentOutOfRangeException("bits");
-            var bitArray = new BitArray(7);
-            bitArray[3] = true;
-
-            var actualException =
-                Assert.Throws<ArgumentOutOfRangeException>(() => _responseMessage.ConvertBitArrayToByte(bitArray, 1, 4));
+            var expected = new ArgumentOutOfRangeException("length");
+            var actualException = Assert.Throws<ArgumentOutOfRangeException>(() => _responseMessage.ConvertBitsToByte(8, 1, 0));
             Assert.AreEqual(expected.Message, actualException.Message);
         }
 
@@ -125,11 +106,7 @@ namespace ElmCommunicatorTests.Responses
         public void ShouldThrowExceptionIfLengthMoreThanEight()
         {
             var expected = new ArgumentOutOfRangeException("length");
-            var bitArray = new BitArray(12);
-            bitArray[3] = true;
-
-            var actualException =
-                Assert.Throws<ArgumentOutOfRangeException>(() => _responseMessage.ConvertBitArrayToByte(bitArray, 1, 9));
+            var actualException = Assert.Throws<ArgumentOutOfRangeException>(() => _responseMessage.ConvertBitsToByte(8, 1, 9));
             Assert.AreEqual(expected.Message, actualException.Message);
         }
     }

@@ -119,59 +119,60 @@ namespace ElmCommunicatorPortable.Responses.ObdIIResponses.ShowCurrentData
             }
 
             message = message.Substring(4);
-            byte[] bytes = StringToByteArray(message, true);
+            byte[] bytes = StringToByteArray(message);
             var bits = new BitArray(bytes);
 
             SetMilStatus(bits);
-            SetDtcCount(bits);
+            SetDtcCount(bytes[0]);
+
             IsCompressionIgnitionMotor = bits[12];
             IsSparkIgnitionMotor = !bits[12];
-            MisfireOccured = bits[15];
-            MisfireTestFailed = bits[11];
-            FuelSystemTest = bits[14];
-            FuelSystemTestFailed = bits[10];
-            ComponentsTest = bits[13];
-            ComponentsTestFailed = bits[9];
-            CatalystTest = bits[23];
-            CatalystTestFailed = bits[31];
-            NmhcCatalyst = bits[23];
-            NmhcCatalystFailed = bits[31];
-            HeatedCatalyst = bits[22];
-            HeatedCatalystTestFailed = bits[30];
-            NoxScrMonitor = bits[22];
-            NoxScrMonitorFailed = bits[30];
-            EvaporativeSystem = bits[21];
-            EvaporativeSystemTestFailed = bits[29];
-            SecondaryAirSystem = bits[20];
-            SecondaryAirSystemTestFailed = bits[28];
-            BoostPressure = bits[20];
-            BoostPressureFailed = bits[28];
-            AcRefrigerant = bits[19];
-            AcRefrigerantTestFailed = bits[27];
-            OxygenSensor = bits[18];
-            OxygenSensorTestFailed = bits[26];
-            GetExhaustGasSensor = bits[18];
-            GetExhaustGasSensorFailed = bits[26];
-            OxygenSensorHeater = bits[17];
-            OxygenSensorHeaterTestFailed = bits[25];
-            GetPmFilterMonitoring = bits[17];
-            GetPmFilterMonitoringFailed = bits[25];
-            EgrSystemTest = bits[16];
-            EgrSystemTestFailed = bits[24];
-            GetEgrAndVttSystem = bits[16];
-            GetEgrAndVttSystemFailed = bits[24];
+            MisfireOccured = bits[8];
+            MisfireTestFailed = bits[9];
+            FuelSystemTest = bits[9];
+            FuelSystemTestFailed = bits[13];
+            ComponentsTest = bits[10];
+            ComponentsTestFailed = bits[14];
+            CatalystTest = bits[16];
+            CatalystTestFailed = bits[24];
+            NmhcCatalyst = bits[16];
+            NmhcCatalystFailed = bits[24];
+            HeatedCatalyst = bits[17];
+            HeatedCatalystTestFailed = bits[25];
+            NoxScrMonitor = bits[17];
+            NoxScrMonitorFailed = bits[25];
+            EvaporativeSystem = bits[18];
+            EvaporativeSystemTestFailed = bits[26];
+            SecondaryAirSystem = bits[19];
+            SecondaryAirSystemTestFailed = bits[27];
+            BoostPressure = bits[19];
+            BoostPressureFailed = bits[27];
+            AcRefrigerant = bits[20];
+            AcRefrigerantTestFailed = bits[28];
+            OxygenSensor = bits[21];
+            OxygenSensorTestFailed = bits[29];
+            GetExhaustGasSensor = bits[21];
+            GetExhaustGasSensorFailed = bits[29];
+            OxygenSensorHeater = bits[22];
+            OxygenSensorHeaterTestFailed = bits[30];
+            GetPmFilterMonitoring = bits[22];
+            GetPmFilterMonitoringFailed = bits[30];
+            EgrSystemTest = bits[23];
+            EgrSystemTestFailed = bits[31];
+            GetEgrAndVttSystem = bits[23];
+            GetEgrAndVttSystemFailed = bits[31];
 
             return this;
         }
 
         internal virtual void SetMilStatus(BitArray bits)
         {
-            MilStatus = bits[0];
+            MilStatus = bits[7];
         }
 
-        internal virtual void SetDtcCount(BitArray bits)
+        internal virtual void SetDtcCount(byte input)
         {
-            DtcCount = ConvertBitArrayToByte(bits, 1, 7);
+            DtcCount = ConvertBitsToByte(input, 0, 7);
         }
     }
 }

@@ -91,7 +91,7 @@ namespace ElmCommunicatorTests.Responses.ObdIIResponses.ShowCurrentData
         [Test]
         public void ShouldGetCelOrMil()
         {
-            const string responseMessage = "41 01 81 00 00 00";
+            const string responseMessage = "41 01 84 00 00 00";
             var response = _response.Parse(responseMessage);
 
             Assert.IsTrue(response.As<MonitorStatusSinceDtcClearedResponse>().MilStatus);

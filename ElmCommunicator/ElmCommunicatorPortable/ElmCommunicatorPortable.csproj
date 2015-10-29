@@ -54,7 +54,6 @@
     <Folder Include="Commands\ObdIICommands\RequestVehicleInformation\" />
     <Folder Include="Commands\ObdIICommands\ShowFreezeFrameData\" />
     <Folder Include="Commands\ObdIICommands\ShowLastDrivingCodes\" />
-    <Folder Include="Commands\ObdIICommands\ShowTroubleCodes\" />
     <Folder Include="Responses\ObdIIResponses\ClearDiagnosticCodes\" />
     <Folder Include="Responses\ObdIIResponses\ControlObdOperation\" />
     <Folder Include="Responses\ObdIIResponses\OtherSystemMonitoring\" />
@@ -63,7 +62,6 @@
     <Folder Include="Responses\ObdIIResponses\RequestVehicleInformation\" />
     <Folder Include="Responses\ObdIIResponses\ShowFreezeFrameData\" />
     <Folder Include="Responses\ObdIIResponses\ShowLastDrivingCodes\" />
-    <Folder Include="Responses\ObdIIResponses\ShowTroubleCodes\" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Commands\ElmCommands\ActivityMonitorCountSendMessage.cs" />
@@ -168,6 +166,7 @@
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\ThrottlePositionSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\TimingAdvanceSendMessage.cs" />
     <Compile Include="Commands\ObdIICommands\ShowCurrentData\VehicleSpeedSendMessage.cs" />
+    <Compile Include="Commands\ObdIICommands\ShowTroubleCodes\GetTroubleCodesSendMessage.cs" />
     <Compile Include="Commands\SendMessage.cs" />
     <Compile Include="Configurations\ICommunicationConfig.cs" />
     <Compile Include="IReceiver.cs" />
@@ -205,6 +204,7 @@
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\ThrottlePositionResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\TimingAdvanceResponse.cs" />
     <Compile Include="Responses\ObdIIResponses\ShowCurrentData\VehicleSpeedResponse.cs" />
+    <Compile Include="Responses\ObdIIResponses\ShowTroubleCodes\GetTroubleCodesResponse.cs" />
     <Compile Include="Responses\ResponseMessage.cs" />
   </ItemGroup>
   <ItemGroup>
